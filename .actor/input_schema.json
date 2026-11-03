@@ -1,0 +1,46 @@
+{
+  "title": "SEO audit input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrl": {
+      "title": "Website URL",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Home page of the site to audit. Only pages on the same hostname are crawled.",
+      "prefill": "https://apify.com"
+    },
+    "maxPages": {
+      "title": "Max pages",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2000,
+      "default": 50,
+      "description": "You are charged per audited page."
+    },
+    "checkExternalLinks": {
+      "title": "Check external links",
+      "type": "boolean",
+      "default": false,
+      "description": "Also check up to 300 outbound links for 404s (slower)."
+    },
+    "language": {
+      "title": "Report language",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "en",
+        "ja"
+      ],
+      "enumTitles": [
+        "English",
+        "日本語"
+      ],
+      "default": "en",
+      "description": "Language of the issue texts and the HTML report."
+    }
+  },
+  "required": [
+    "startUrl"
+  ]
+}

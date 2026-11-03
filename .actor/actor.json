@@ -1,0 +1,32 @@
+{
+  "actorSpecification": 1,
+  "name": "seo-ai-readiness-audit",
+  "title": "SEO & AI-Readiness Site Audit (0-100 score, EN/JA report)",
+  "description": "Crawls a website, audits every page for SEO issues (title, meta description, H1, canonical, noindex, alt text, structured data, broken links) and AI-search readiness (llms.txt, AI crawler blocks). Outputs a 0-100 score and an HTML report in English or Japanese.",
+  "version": "0.1",
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Pages",
+          "transformation": {
+            "fields": [
+              "score",
+              "url",
+              "issues",
+              "brokenLinks"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  },
+  "readme": "./README.md",
+  "output": "./output_schema.json"
+}

@@ -1,0 +1,24 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "SEO audit results",
+  "properties": {
+    "pages": {
+      "title": "Pages (worst first)",
+      "description": "One row per audited page with score, issues and broken links.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items",
+      "type": "string"
+    },
+    "summary": {
+      "title": "Site summary",
+      "description": "Site score, site-level issues, most common issues and worst pages.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY",
+      "type": "string"
+    },
+    "report": {
+      "title": "HTML report",
+      "description": "Shareable HTML report in English or Japanese.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/REPORT.html",
+      "type": "string"
+    }
+  }
+}
