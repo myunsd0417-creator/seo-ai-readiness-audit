@@ -7,7 +7,7 @@
       "title": "Website URL",
       "type": "string",
       "editor": "textfield",
-      "description": "Home page of the site to audit. Only pages on the same hostname are crawled.",
+      "description": "Home page (or any page) of the website to audit, e.g. https://example.com. Only pages on the same hostname are crawled.",
       "prefill": "https://apify.com"
     },
     "maxPages": {
@@ -16,13 +16,19 @@
       "minimum": 1,
       "maximum": 2000,
       "default": 50,
-      "description": "You are charged per audited page."
+      "description": "Maximum number of pages to audit. You pay per audited page, so this also caps the cost of a run."
     },
     "checkExternalLinks": {
       "title": "Check external links",
       "type": "boolean",
       "default": false,
       "description": "Also check up to 300 outbound links for 404s (slower)."
+    },
+    "generateLlmsTxt": {
+      "title": "Generate llms.txt draft",
+      "type": "boolean",
+      "default": true,
+      "description": "Build a ready-to-publish llms.txt file from the crawled pages (saved as the \"llms.txt\" record in the key-value store)."
     },
     "language": {
       "title": "Report language",

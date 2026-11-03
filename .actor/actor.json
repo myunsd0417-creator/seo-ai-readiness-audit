@@ -1,9 +1,9 @@
 {
   "actorSpecification": 1,
   "name": "seo-ai-readiness-audit",
-  "title": "SEO & AI-Readiness Site Audit (0-100 score, EN/JA report)",
-  "description": "Crawls a website, audits every page for SEO issues (title, meta description, H1, canonical, noindex, alt text, structured data, broken links) and AI-search readiness (llms.txt, AI crawler blocks). Outputs a 0-100 score and an HTML report in English or Japanese.",
-  "version": "0.1",
+  "title": "SEO Audit & AI Search Readiness Checker + llms.txt Generator",
+  "description": "Audit a whole website for SEO and AI search (GEO/AEO) readiness. Get an SEO score, an AI-readiness score, AI crawler access check (GPTBot, ClaudeBot, PerplexityBot…), broken links, and a ready-to-publish llms.txt. English/Japanese report. Pay per page.",
+  "version": "0.2",
   "input": "./input_schema.json",
   "dockerfile": "./Dockerfile",
   "storages": {
@@ -17,7 +17,8 @@
               "score",
               "url",
               "issues",
-              "brokenLinks"
+              "brokenLinks",
+              "structuredDataTypes"
             ]
           },
           "display": {

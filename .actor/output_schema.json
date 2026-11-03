@@ -10,7 +10,7 @@
     },
     "summary": {
       "title": "Site summary",
-      "description": "Site score, site-level issues, most common issues and worst pages.",
+      "description": "SEO score, AI search readiness score, AI crawler access, site-level issues, most common issues and worst pages.",
       "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY",
       "type": "string"
     },
@@ -18,6 +18,12 @@
       "title": "HTML report",
       "description": "Shareable HTML report in English or Japanese.",
       "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/REPORT.html",
+      "type": "string"
+    },
+    "llmsTxt": {
+      "title": "llms.txt draft",
+      "description": "Ready-to-publish llms.txt generated from the crawled pages.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/llms.txt",
       "type": "string"
     }
   }
