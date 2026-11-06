@@ -1,0 +1,122 @@
+[
+  {
+    "date": "2026-11-07",
+    "text": "Quick SEO check you can do in 10 seconds: open your homepage, view source, search for <title>. If it's missing, empty, or the same on every page, that's the first thing to fix."
+  },
+  {
+    "date": "2026-11-08",
+    "text": "Many sites block AI crawlers without knowing it. A single \"Disallow: /\" under \"User-agent: *\" in robots.txt also stops GPTBot, ClaudeBot and PerplexityBot. Worth checking once."
+  },
+  {
+    "date": "2026-11-09",
+    "text": "Meta descriptions don't directly affect rankings, but they often become the snippet people read before clicking. Aim for roughly 120-160 characters and write it for humans."
+  },
+  {
+    "date": "2026-11-10",
+    "text": "One H1 per page is a good habit. It tells both readers and crawlers what the page is about. Multiple H1s aren't fatal, but they usually mean the structure is unclear."
+  },
+  {
+    "date": "2026-11-11",
+    "text": "Broken internal links waste crawl budget and frustrate visitors. Even a small site can pick up dozens of 404s after a redesign or a URL change. Audit after every big update."
+  },
+  {
+    "date": "2026-11-12",
+    "text": "Is your site ready for AI search? Check robots.txt for AI crawlers, add a clear title and description to every page, and consider an llms.txt file. This tool checks all of it in one run:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-11-13",
+    "text": "Canonical tags tell search engines which URL is the \"real\" one when the same content lives at several addresses (http/https, with/without www, URL parameters). Missing canonicals = diluted signals."
+  },
+  {
+    "date": "2026-11-14",
+    "text": "llms.txt is a simple Markdown file at your site root that summarizes your important pages for AI models. It's still a proposal, but it's cheap to add and easy to keep updated."
+  },
+  {
+    "date": "2026-11-15",
+    "text": "Images without alt text are invisible to screen readers and give search engines less context. Describe what the image shows in a short, plain sentence."
+  },
+  {
+    "date": "2026-11-16",
+    "text": "A page set to noindex by accident can stay hidden from Google for months. Check both the meta robots tag and the X-Robots-Tag HTTP header. This audit flags both on every page:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-11-17",
+    "text": "Thin pages (very little text, no clear purpose) rarely rank and rarely get cited by AI answers. Merge them, expand them, or noindex them."
+  },
+  {
+    "date": "2026-11-18",
+    "text": "Structured data (JSON-LD) helps search engines understand what a page is: an article, a product, an FAQ, an organization. It's also a strong signal for AI-generated answers."
+  },
+  {
+    "date": "2026-11-19",
+    "text": "Run a full-site SEO + AI search readiness audit: per-page issues, an SEO score, an AI readiness score, AI crawler access, broken links and a ready-to-use llms.txt. No setup:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-11-20",
+    "text": "The <html lang> attribute is easy to forget. It helps browsers, screen readers and search engines serve your page to the right audience. One attribute, zero cost."
+  },
+  {
+    "date": "2026-11-21",
+    "text": "Missing Open Graph tags mean ugly link previews on social apps: no image, random text. og:title and og:image take two minutes to add and make every share look better."
+  },
+  {
+    "date": "2026-11-22",
+    "text": "Missing a mobile viewport meta tag? Your page may render as a tiny desktop layout on phones. Google uses mobile-first indexing, so this matters for rankings too. Check yours here:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-11-23",
+    "text": "GEO (generative engine optimization) is mostly good SEO done well: clear headings, direct answers, accurate facts, and pages that AI crawlers are allowed to read."
+  },
+  {
+    "date": "2026-11-24",
+    "text": "Before blocking AI crawlers, decide what you want. Blocking GPTBot stops training crawls, while OAI-SearchBot is used for ChatGPT search results. They are different bots."
+  },
+  {
+    "date": "2026-11-25",
+    "text": "Agencies: an AI search readiness score is an easy add-on to a normal SEO audit, and clients increasingly ask why ChatGPT never mentions them. This Actor exports an HTML report in English or Japanese:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-11-26",
+    "text": "Duplicate titles across many pages make it hard for search engines to tell them apart. Give each page a title that says what's unique about it."
+  },
+  {
+    "date": "2026-11-27",
+    "text": "A quick win for AI answers: put a one or two sentence direct answer near the top of the page, then the details below. Both readers and AI models appreciate it."
+  },
+  {
+    "date": "2026-11-28",
+    "text": "Want an llms.txt but don't want to write it by hand? This Actor crawls your site and generates one from your own pages, along with a full SEO and AI readiness report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-11-29",
+    "text": "Redirect chains (A -> B -> C) slow down crawlers and users. Point old URLs straight to the final destination with a single 301."
+  },
+  {
+    "date": "2026-11-30",
+    "text": "Don't rely on one audit. Sites change: new pages, new plugins, a robots.txt edit by someone on the team. A monthly check catches problems before traffic drops."
+  },
+  {
+    "date": "2026-12-01",
+    "text": "Checklist for any new page: unique title, meta description, one H1, canonical, alt text on images, internal links in and out, indexable. Or check a whole site at once:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-12-02",
+    "text": "External links that now return 404 hurt user trust more than rankings, but they're still worth fixing. Replace them or remove them during your regular content review."
+  },
+  {
+    "date": "2026-12-03",
+    "text": "Tip: compare your AI crawler rules with a competitor's robots.txt. You can learn a lot about how other sites approach AI search just by reading that one file."
+  },
+  {
+    "date": "2026-12-04",
+    "text": "Developers: this audit also works as a tool for AI agents through the Apify MCP server, so an agent can audit any site on request and return structured results:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-12-05",
+    "text": "Good SEO in one sentence: make every page easy to find, easy to understand, and genuinely useful. Everything else is details."
+  },
+  {
+    "date": "2026-12-06",
+    "text": "End-of-year site check: run one full audit, fix the top 10 issues, and start next year with a clean, AI-search-ready site. Free to try on Apify:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  }
+]

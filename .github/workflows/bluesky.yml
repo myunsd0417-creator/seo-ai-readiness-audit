@@ -1,0 +1,28 @@
+name: Bluesky daily post
+
+on:
+  schedule:
+    # 13:47 UTC = 22:47 Japan time = morning in the US
+    - cron: '47 13 * * *'
+  workflow_dispatch:
+    inputs:
+      login_only:
+        description: 'Only test the login (do not post)'
+        type: boolean
+        default: true
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Post to Bluesky
+        run: node bluesky/post.mjs
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          LOGIN_ONLY: ${{ github.event_name == 'workflow_dispatch' && inputs.login_only && '1' || '0' }}
