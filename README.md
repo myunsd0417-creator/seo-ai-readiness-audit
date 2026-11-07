@@ -110,6 +110,11 @@ Pay per event: you are charged a small fixed price **per audited page** and noth
 
 **Can an AI agent use it?** Yes. Add it to the Apify MCP server (`https://mcp.apify.com`) and any MCP client can call it.
 
+## More tools from the same author
+
+- [Bulk PageSpeed & Core Web Vitals Checker](https://apify.com/mirumiru_miru17/page-speed-core-web-vitals): Lighthouse scores, LCP/CLS/TBT and top fixes for a list of URLs
+- [Audio & Video to Text Transcriber (Whisper)](https://apify.com/mirumiru_miru17/audio-video-transcriber): transcripts and SRT subtitles in Japanese and 90+ languages
+
 ---
 
 ## 日本語

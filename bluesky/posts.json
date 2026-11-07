@@ -118,5 +118,105 @@
   {
     "date": "2026-12-06",
     "text": "End-of-year site check: run one full audit, fix the top 10 issues, and start next year with a clean, AI-search-ready site. Free to try on Apify:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-12-07",
+    "text": "Core Web Vitals in one line each: LCP = how fast the main content shows (aim under 2.5s). CLS = how much the layout jumps (under 0.1). INP/TBT = how quickly the page reacts to taps."
+  },
+  {
+    "date": "2026-12-08",
+    "text": "The fastest page-speed win on most sites: compress and resize hero images. A 3 MB photo shown at 800px wide is the classic cause of a slow LCP."
+  },
+  {
+    "date": "2026-12-09",
+    "text": "Checking PageSpeed one URL at a time gets old fast. This runs Lighthouse on a whole list of URLs, mobile or desktop, and returns scores, Core Web Vitals and the top fixes. No API key:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+  },
+  {
+    "date": "2026-12-10",
+    "text": "Meeting recordings are searchable gold if they're text. Transcribe once, then you can search, quote and summarize instead of scrubbing through an hour of audio."
+  },
+  {
+    "date": "2026-12-11",
+    "text": "Render-blocking CSS and JS delay the first paint. Inline critical CSS, defer non-critical scripts, and load third-party widgets after the page is interactive."
+  },
+  {
+    "date": "2026-12-12",
+    "text": "Need subtitles for a video? Whisper can produce timestamped SRT files from MP4, WebM or MP3, in Japanese and 90+ other languages. Pay per audio minute:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber"
+  },
+  {
+    "date": "2026-12-13",
+    "text": "Lab data vs field data: Lighthouse simulates a mid-range phone on a slow network. Real users may be faster or slower. Use lab tests to find problems, field data to confirm them."
+  },
+  {
+    "date": "2026-12-14",
+    "text": "Unused JavaScript is often the biggest Lighthouse opportunity. Check which scripts load on every page but are only needed on one, and split or lazy-load them."
+  },
+  {
+    "date": "2026-12-15",
+    "text": "Compare your homepage speed against competitors in one run: put all the URLs in, get performance scores and LCP/CLS side by side.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+  },
+  {
+    "date": "2026-12-16",
+    "text": "Tip for podcasters: a transcript of each episode gives search engines text to index, helps deaf and hard-of-hearing listeners, and makes writing show notes much faster."
+  },
+  {
+    "date": "2026-12-17",
+    "text": "Layout shift (CLS) usually comes from images without width/height, ads or embeds that load late, and web fonts swapping. Reserve space for anything that loads after the text."
+  },
+  {
+    "date": "2026-12-18",
+    "text": "Japanese transcription tip: set the language to Japanese instead of auto-detect when the audio has a lot of English loanwords. It keeps the output in natural Japanese text."
+  },
+  {
+    "date": "2026-12-19",
+    "text": "Agencies: a monthly speed report is an easy retainer add-on. Schedule a Lighthouse run on your clients' key pages and send the color-coded HTML report.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+  },
+  {
+    "date": "2026-12-20",
+    "text": "Total Blocking Time is how long the main thread is too busy to respond. Heavy frameworks, chat widgets and tag managers are the usual suspects."
+  },
+  {
+    "date": "2026-12-21",
+    "text": "Interviews, lectures, voice memos: paste direct file links and get full text, timestamped segments and SRT subtitles back. Whisper, no API key needed:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber"
+  },
+  {
+    "date": "2026-12-22",
+    "text": "Caching matters: static files like images, CSS and JS should have long cache lifetimes so repeat visitors don't download them again."
+  },
+  {
+    "date": "2026-12-23",
+    "text": "Before redesigning a slow site, measure it. Often three fixes (images, unused JS, a slow third-party script) recover most of the speed."
+  },
+  {
+    "date": "2026-12-24",
+    "text": "Year-end site check: one SEO + AI search readiness audit, one page speed run on your top pages. Fix the top 5 issues from each and you're ahead of most sites.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-12-25",
+    "text": "Fonts can slow pages down too. Use font-display: swap, load only the weights you use, and consider system fonts for body text."
+  },
+  {
+    "date": "2026-12-26",
+    "text": "Whisper works best on clear audio. If you record meetings, a cheap external mic does more for transcript accuracy than any software setting."
+  },
+  {
+    "date": "2026-12-27",
+    "text": "Mobile scores are usually much lower than desktop in Lighthouse, and Google ranks on mobile. Test both in one run and see where the gap is:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+  },
+  {
+    "date": "2026-12-28",
+    "text": "Accessibility and SEO overlap: alt text on images, descriptive link text, a clear heading structure and captions on videos help both humans and search engines."
+  },
+  {
+    "date": "2026-12-29",
+    "text": "Turn a backlog of recordings into text over the holidays: bulk transcription handles many files in one run, each with its own SRT file.\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber"
+  },
+  {
+    "date": "2026-12-30",
+    "text": "Speed checklist: compressed images, lazy-loaded below-the-fold media, deferred JS, cached static files, few third-party scripts, a fast host. Six items, most of the gains."
+  },
+  {
+    "date": "2026-12-31",
+    "text": "Thanks for following this year. Plan for 2027: audit once a quarter, test speed after every release, and turn recordings into text instead of letting them pile up."
   }
 ]
