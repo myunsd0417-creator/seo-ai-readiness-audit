@@ -69,6 +69,17 @@ if (process.env.LOGIN_ONLY === '1') {
   console.log(`Login OK as ${session.handle}. Nothing was posted.`);
   process.exit(0);
 }
+// Skip if this exact text was already posted (protects against delayed/duplicate runs).
+const feedRes = await fetch(`${SERVICE}/xrpc/app.bsky.feed.getAuthorFeed?actor=${session.did}&limit=30`, {
+  headers: { Authorization: `Bearer ${session.accessJwt}` },
+});
+if (feedRes.ok) {
+  const feed = await feedRes.json();
+  if ((feed.feed || []).some((f) => f.post?.record?.text === text)) {
+    console.log(`Already posted for ${today}. Skipping.`);
+    process.exit(0);
+  }
+}
 const result = await call(
   'com.atproto.repo.createRecord',
   { repo: session.did, collection: 'app.bsky.feed.post', record },

@@ -2,8 +2,9 @@ name: Bluesky daily post
 
 on:
   schedule:
-    # 13:47 UTC = 22:47 Japan time = morning in the US
-    - cron: '47 13 * * *'
+    # 00:17 UTC = 09:17 Japan time (evening in the US). Early in the Japan day,
+    # so even if GitHub delays the run by hours it still picks the right date.
+    - cron: '17 0 * * *'
   workflow_dispatch:
     inputs:
       login_only:
