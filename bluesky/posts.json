@@ -53,7 +53,7 @@
   },
   {
     "date": "2026-11-20",
-    "text": "The <html lang> attribute is easy to forget. It helps browsers, screen readers and search engines serve your page to the right audience. One attribute, zero cost."
+    "text": "Scanned PDFs are just pictures of text. To search or copy them you need OCR. This one reads digital PDF pages exactly and OCRs only the scanned ones, with per-page confidence:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
   },
   {
     "date": "2026-11-21",
@@ -101,7 +101,7 @@
   },
   {
     "date": "2026-12-02",
-    "text": "External links that now return 404 hurt user trust more than rankings, but they're still worth fixing. Replace them or remove them during your regular content review."
+    "text": "Receipts piling up? OCR turns photos and scans into text you can paste into a spreadsheet. Works with English and Japanese receipts, pay per page:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
   },
   {
     "date": "2026-12-03",
@@ -149,7 +149,7 @@
   },
   {
     "date": "2026-12-14",
-    "text": "Unused JavaScript is often the biggest Lighthouse opportunity. Check which scripts load on every page but are only needed on one, and split or lazy-load them."
+    "text": "Japanese OCR tip: vertical text (縦書き) needs a vertical model. This OCR Actor supports both horizontal and vertical Japanese, plus English, Chinese and Korean:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
   },
   {
     "date": "2026-12-15",
@@ -197,7 +197,7 @@
   },
   {
     "date": "2026-12-26",
-    "text": "Whisper works best on clear audio. If you record meetings, a cheap external mic does more for transcript accuracy than any software setting."
+    "text": "Give an AI agent eyes for documents: an OCR tool callable via the Apify MCP server, returning structured text per page from images and PDFs.\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
   },
   {
     "date": "2026-12-27",
