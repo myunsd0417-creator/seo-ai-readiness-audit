@@ -1,0 +1,31 @@
+name: Threads via Buffer
+
+on:
+  schedule:
+    # 03:23 UTC = 12:23 Japan time. Sends tomorrow's post to Buffer (posted 07:30 JST).
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'How many days ahead to send (1 = tomorrow only)'
+        default: '1'
+      dry_run:
+        description: 'Only show what would be sent'
+        type: boolean
+        default: false
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Send to Buffer
+        run: node threads/schedule.mjs
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '1' }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
