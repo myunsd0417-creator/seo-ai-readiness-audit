@@ -2,8 +2,9 @@ name: Threads via Buffer
 
 on:
   schedule:
-    # 03:23 UTC = 12:23 Japan time. Sends tomorrow's post to Buffer (posted 07:30 JST).
-    - cron: '23 3 * * *'
+    # Every 4 hours. Each run sends the next 2 days that are not yet in Buffer
+    # (posted 07:30 JST). sent.json prevents duplicates, so GitHub delays don't matter.
+    - cron: '43 */4 * * *'
   workflow_dispatch:
     inputs:
       days:
@@ -13,6 +14,13 @@ on:
         description: 'Only show what would be sent'
         type: boolean
         default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: threads-buffer
+  cancel-in-progress: false
 
 jobs:
   schedule:
@@ -27,5 +35,14 @@ jobs:
         run: node threads/schedule.mjs
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-          DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '1' }}
+          DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '2' }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
+      - name: Save sent dates
+        run: |
+          if ! git diff --quiet threads/sent.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add threads/sent.json
+            git commit -m "Record Threads posts sent to Buffer"
+            git pull --rebase -q origin main && git push -q origin HEAD:main
+          fi

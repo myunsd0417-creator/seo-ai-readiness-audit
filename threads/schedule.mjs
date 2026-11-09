@@ -2,7 +2,7 @@
 // Env: BUFFER_API_KEY (required), BUFFER_CHANNEL_ID (optional, auto-detects the Threads channel),
 //      DAYS (how many days ahead to send, default 1 = tomorrow), POST_TIME (JST "HH:MM", default 07:30),
 //      DRY_RUN=1 to only print.
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 const API = 'https://api.buffer.com';
 const posts = JSON.parse(readFileSync(new URL('./posts.json', import.meta.url), 'utf8'));
@@ -18,9 +18,15 @@ const dueAtUtc = (date) => {
   return new Date(Date.UTC(y, m - 1, d, hh - 9, mm)).toISOString();
 };
 
+// Dates already sent to Buffer (kept in sent.json so repeated runs never double-post).
+const sentFile = new URL('./sent.json', import.meta.url);
+let sent = [];
+try { sent = JSON.parse(readFileSync(sentFile, 'utf8')); } catch {}
+
 const targets = [];
 for (let i = 1; i <= days; i++) {
   const date = jstDate(i);
+  if (sent.includes(date)) continue;
   const entry = posts.find((p) => p.date === date);
   if (entry) targets.push({ date, text: entry.text, dueAt: dueAtUtc(date) });
 }
@@ -79,4 +85,6 @@ for (const t of targets) {
   const r = data.createPost;
   if (r?.message) throw new Error(`Could not schedule ${t.date}: ${r.message}`);
   console.log(`Scheduled ${t.date} (${t.dueAt}): ${r?.post?.id}`);
+  sent.push(t.date);
+  writeFileSync(sentFile, JSON.stringify(sent.sort(), null, 0) + '\n');
 }
