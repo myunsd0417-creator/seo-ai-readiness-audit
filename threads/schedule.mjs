@@ -13,9 +13,10 @@ const jstDate = (offsetDays) => {
   const d = new Date(Date.now() + 9 * 3600e3 + offsetDays * 86400e3);
   return d.toISOString().slice(0, 10);
 };
-const dueAtUtc = (date) => {
+const dueAtUtc = (date, time) => {
   const [y, m, d] = date.split('-').map(Number);
-  return new Date(Date.UTC(y, m - 1, d, hh - 9, mm)).toISOString();
+  const [h, mi] = time ? time.split(':').map(Number) : [hh, mm];
+  return new Date(Date.UTC(y, m - 1, d, h - 9, mi)).toISOString();
 };
 
 // Dates already sent to Buffer (kept in sent.json so repeated runs never double-post).
@@ -28,7 +29,7 @@ for (let i = 1; i <= days; i++) {
   const date = jstDate(i);
   if (sent.includes(date)) continue;
   const entry = posts.find((p) => p.date === date);
-  if (entry) targets.push({ date, text: entry.text, dueAt: dueAtUtc(date) });
+  if (entry) targets.push({ date, text: entry.text, dueAt: dueAtUtc(date, entry.time) });
 }
 if (!targets.length) {
   console.log('No posts to schedule for the next', days, 'day(s).');

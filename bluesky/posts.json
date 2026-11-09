@@ -13,210 +13,110 @@
   },
   {
     "date": "2026-11-10",
-    "text": "One H1 per page is a good habit. It tells both readers and crawlers what the page is about. Multiple H1s aren't fatal, but they usually mean the structure is unclear."
+    "text": "Agencies: the question \"why doesn't ChatGPT ever mention us?\" is coming up in client calls. The first thing to check is boring but common: robots.txt blocking GPTBot, OAI-SearchBot or PerplexityBot."
   },
   {
     "date": "2026-11-11",
-    "text": "Broken internal links waste crawl budget and frustrate visitors. Even a small site can pick up dozens of 404s after a redesign or a URL change. Audit after every big update."
+    "text": "Auditing a client site by hand takes hours: titles, meta descriptions, H1s, canonicals, noindex, broken links, alt text, AI crawler rules. This Actor does all of it for every page in one run and exports a client-ready HTML report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-12",
-    "text": "Is your site ready for AI search? Check robots.txt for AI crawlers, add a clear title and description to every page, and consider an llms.txt file. This tool checks all of it in one run:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
+    "text": "A useful habit for agencies: re-audit every client site once a month. New pages, plugin updates and robots.txt edits quietly break SEO, and you want to catch it before the client does."
   },
   {
     "date": "2026-11-13",
-    "text": "Canonical tags tell search engines which URL is the \"real\" one when the same content lives at several addresses (http/https, with/without www, URL parameters). Missing canonicals = diluted signals.\n#SEO"
+    "text": "You can schedule an Apify Actor to run automatically (daily, weekly, monthly) and get the results by email or webhook. Pair that with a full-site SEO + AI readiness audit and you have hands-off monitoring:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-14",
-    "text": "llms.txt is a simple Markdown file at your site root that summarizes your important pages for AI models. It's still a proposal, but it's cheap to add and easy to keep updated.\n#SEO #AISearch"
+    "text": "The fastest way to win a new SEO client: send them a short audit of their own site before the first call. Real issues on their real pages beat any sales deck."
   },
   {
     "date": "2026-11-15",
-    "text": "Images without alt text are invisible to screen readers and give search engines less context. Describe what the image shows in a short, plain sentence.\n#WebPerf"
+    "text": "Bulk audits: run the same full-site check across 10 or 50 client domains, then compare SEO scores and AI readiness scores side by side. Pay per page, no subscription to another SEO tool:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-16",
-    "text": "A page set to noindex by accident can stay hidden from Google for months. Check both the meta robots tag and the X-Robots-Tag HTTP header. This audit flags both on every page:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO"
+    "text": "llms.txt is becoming a common request in AI search (GEO) audits. Writing it by hand for a 200-page site is tedious. Generating it from the site's own pages takes seconds."
   },
   {
     "date": "2026-11-17",
-    "text": "Thin pages (very little text, no clear purpose) rarely rank and rarely get cited by AI answers. Merge them, expand them, or noindex them.\n#SEO"
+    "text": "Developers: this audit has a clean JSON output per page (score, issues, broken links, schema types), so it drops straight into your own dashboards or client reporting:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-18",
-    "text": "Structured data (JSON-LD) helps search engines understand what a page is: an article, a product, an FAQ, an organization. It's also a strong signal for AI-generated answers."
+    "text": "Japanese clients? The audit report can be generated in Japanese as well as English, which saves translating findings for every client meeting."
   },
   {
     "date": "2026-11-19",
-    "text": "Run a full-site SEO + AI search readiness audit: per-page issues, an SEO score, an AI readiness score, AI crawler access, broken links and a ready-to-use llms.txt. No setup:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
+    "text": "An AI readiness score is easier to sell than a list of 80 SEO issues. Clients understand \"62/100 for AI search\" instantly. The detail is there for whoever does the fixes."
   },
   {
     "date": "2026-11-20",
-    "text": "Scanned PDFs are just pictures of text. To search or copy them you need OCR. This one reads digital PDF pages exactly and OCRs only the scanned ones, with per-page confidence:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
+    "text": "Building an AI agent that needs to audit websites? This Actor works as a tool through the Apify MCP server, so an agent can run a full-site audit on request and read structured results:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-21",
-    "text": "Missing Open Graph tags mean ugly link previews on social apps: no image, random text. og:title and og:image take two minutes to add and make every share look better.\n#WebPerf #SEO"
+    "text": "Checklist for a GEO (AI search) audit: AI crawlers allowed in robots.txt, clear titles and descriptions, one H1, structured data, direct answers near the top, llms.txt. Most sites miss at least two."
   },
   {
     "date": "2026-11-22",
-    "text": "Missing a mobile viewport meta tag? Your page may render as a tiny desktop layout on phones. Google uses mobile-first indexing, so this matters for rankings too. Check yours here:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO"
+    "text": "Freelancers: offer a fixed-price \"SEO + AI search readiness audit\" as an entry product. Run the audit, add your own notes on the top 10 fixes, and deliver the HTML report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-23",
-    "text": "GEO (generative engine optimization) is mostly good SEO done well: clear headings, direct answers, accurate facts, and pages that AI crawlers are allowed to read.\n#SEO #AISearch"
+    "text": "Broken internal links pile up quietly after redesigns and URL changes. On client sites with a few hundred pages, it's normal to find dozens. A full crawl is the only reliable way to catch them."
   },
   {
     "date": "2026-11-24",
-    "text": "Before blocking AI crawlers, decide what you want. Blocking GPTBot stops training crawls, while OAI-SearchBot is used for ChatGPT search results. They are different bots.\n#SEO #AISearch"
+    "text": "Before and after: run an audit before you start work for a client and again after your fixes. The score change is the simplest proof of value you can show."
   },
   {
     "date": "2026-11-25",
-    "text": "Agencies: an AI search readiness score is an easy add-on to a normal SEO audit, and clients increasingly ask why ChatGPT never mentions them. This Actor exports an HTML report in English or Japanese:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
+    "text": "Apify gives you free monthly credits to try Actors, so you can run a real audit on your own site first and see the report before using it for clients:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-26",
-    "text": "Duplicate titles across many pages make it hard for search engines to tell them apart. Give each page a title that says what's unique about it.\n#SEO"
+    "text": "Noindex by accident is one of the most expensive SEO mistakes, and it hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. Check both on every page."
   },
   {
     "date": "2026-11-27",
-    "text": "A quick win for AI answers: put a one or two sentence direct answer near the top of the page, then the details below. Both readers and AI models appreciate it."
+    "text": "Many sites block AI crawlers with a broad rule they added years ago for a different reason. Blocking training bots and blocking AI search bots are separate decisions. Audit before you decide."
   },
   {
     "date": "2026-11-28",
-    "text": "Want an llms.txt but don't want to write it by hand? This Actor crawls your site and generates one from your own pages, along with a full SEO and AI readiness report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
+    "text": "For agencies with many clients: run audits through the Apify API and pipe results into Google Sheets or your CRM. One integration, every client covered:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-29",
-    "text": "Redirect chains (A -> B -> C) slow down crawlers and users. Point old URLs straight to the final destination with a single 301."
+    "text": "Duplicate titles and missing meta descriptions are the most common issues on small business sites. They're also the quickest wins to show a new client in week one."
   },
   {
     "date": "2026-11-30",
-    "text": "Don't rely on one audit. Sites change: new pages, new plugins, a robots.txt edit by someone on the team. A monthly check catches problems before traffic drops.\n#SEO"
+    "text": "Structured data (JSON-LD) is one of the clearest signals for both rich results and AI answers. The audit lists which schema types each page uses, so gaps are easy to spot."
   },
   {
     "date": "2026-12-01",
-    "text": "Checklist for any new page: unique title, meta description, one H1, canonical, alt text on images, internal links in and out, indexable. Or check a whole site at once:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#WebPerf #SEO"
+    "text": "End-of-year offer idea for agencies: a \"ready for AI search in 2027\" audit for existing clients. Same work, new framing, and a real reason to talk before budgets reset:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-12-02",
-    "text": "Receipts piling up? OCR turns photos and scans into text you can paste into a spreadsheet. Works with English and Japanese receipts, pay per page:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
+    "text": "Thin pages rarely rank and rarely get cited by AI answers. Merge them, expand them, or noindex them. A crawl that flags low word counts makes the list for you."
   },
   {
     "date": "2026-12-03",
-    "text": "Tip: compare your AI crawler rules with a competitor's robots.txt. You can learn a lot about how other sites approach AI search just by reading that one file.\n#SEO #AISearch"
+    "text": "Missing Open Graph tags make every shared link look broken on social apps. It's a two-minute fix that clients notice immediately."
   },
   {
     "date": "2026-12-04",
-    "text": "Developers: this audit also works as a tool for AI agents through the Apify MCP server, so an agent can audit any site on request and return structured results:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#MCP #SEO"
+    "text": "One run, one domain, everything: SEO score, AI readiness score, AI crawler access, broken links, per-page issues and a ready-to-publish llms.txt. English or Japanese report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-12-05",
-    "text": "Good SEO in one sentence: make every page easy to find, easy to understand, and genuinely useful. Everything else is details.\n#SEO"
+    "text": "Good SEO in one sentence: make every page easy to find, easy to understand, and genuinely useful. AI search rewards exactly the same things."
   },
   {
     "date": "2026-12-06",
-    "text": "End-of-year site check: run one full audit, fix the top 10 issues, and start next year with a clean, AI-search-ready site. Free to try on Apify:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO"
-  },
-  {
-    "date": "2026-12-07",
-    "text": "Core Web Vitals in one line each: LCP = how fast the main content shows (aim under 2.5s). CLS = how much the layout jumps (under 0.1). INP/TBT = how quickly the page reacts to taps.\n#WebPerf #CoreWebVitals"
-  },
-  {
-    "date": "2026-12-08",
-    "text": "The fastest page-speed win on most sites: compress and resize hero images. A 3 MB photo shown at 800px wide is the classic cause of a slow LCP.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-09",
-    "text": "Checking PageSpeed one URL at a time gets old fast. This runs Lighthouse on a whole list of URLs, mobile or desktop, and returns scores, Core Web Vitals and the top fixes. No API key:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf #CoreWebVitals"
-  },
-  {
-    "date": "2026-12-10",
-    "text": "Meeting recordings are searchable gold if they're text. Transcribe once, then you can search, quote and summarize instead of scrubbing through an hour of audio.\n#Transcription"
-  },
-  {
-    "date": "2026-12-11",
-    "text": "Render-blocking CSS and JS delay the first paint. Inline critical CSS, defer non-critical scripts, and load third-party widgets after the page is interactive."
-  },
-  {
-    "date": "2026-12-12",
-    "text": "Need subtitles for a video? Whisper can produce timestamped SRT files from MP4, WebM or MP3, in Japanese and 90+ other languages. Pay per audio minute:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber\n#Whisper #Transcription"
-  },
-  {
-    "date": "2026-12-13",
-    "text": "Lab data vs field data: Lighthouse simulates a mid-range phone on a slow network. Real users may be faster or slower. Use lab tests to find problems, field data to confirm them.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-14",
-    "text": "Japanese OCR tip: vertical text (縦書き) needs a vertical model. This OCR Actor supports both horizontal and vertical Japanese, plus English, Chinese and Korean:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
-  },
-  {
-    "date": "2026-12-15",
-    "text": "Compare your homepage speed against competitors in one run: put all the URLs in, get performance scores and LCP/CLS side by side.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf"
-  },
-  {
-    "date": "2026-12-16",
-    "text": "Tip for podcasters: a transcript of each episode gives search engines text to index, helps deaf and hard-of-hearing listeners, and makes writing show notes much faster.\n#Transcription #Podcast"
-  },
-  {
-    "date": "2026-12-17",
-    "text": "Layout shift (CLS) usually comes from images without width/height, ads or embeds that load late, and web fonts swapping. Reserve space for anything that loads after the text.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-18",
-    "text": "Japanese transcription tip: set the language to Japanese instead of auto-detect when the audio has a lot of English loanwords. It keeps the output in natural Japanese text.\n#Transcription"
-  },
-  {
-    "date": "2026-12-19",
-    "text": "Agencies: a monthly speed report is an easy retainer add-on. Schedule a Lighthouse run on your clients' key pages and send the color-coded HTML report.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf"
-  },
-  {
-    "date": "2026-12-20",
-    "text": "Total Blocking Time is how long the main thread is too busy to respond. Heavy frameworks, chat widgets and tag managers are the usual suspects."
-  },
-  {
-    "date": "2026-12-21",
-    "text": "Interviews, lectures, voice memos: paste direct file links and get full text, timestamped segments and SRT subtitles back. Whisper, no API key needed:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber\n#Whisper #Transcription"
-  },
-  {
-    "date": "2026-12-22",
-    "text": "Caching matters: static files like images, CSS and JS should have long cache lifetimes so repeat visitors don't download them again.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-23",
-    "text": "Before redesigning a slow site, measure it. Often three fixes (images, unused JS, a slow third-party script) recover most of the speed.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-24",
-    "text": "Year-end site check: one SEO + AI search readiness audit, one page speed run on your top pages. Fix the top 5 issues from each and you're ahead of most sites.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#WebPerf #SEO"
-  },
-  {
-    "date": "2026-12-25",
-    "text": "Fonts can slow pages down too. Use font-display: swap, load only the weights you use, and consider system fonts for body text.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-26",
-    "text": "Give an AI agent eyes for documents: an OCR tool callable via the Apify MCP server, returning structured text per page from images and PDFs.\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
-  },
-  {
-    "date": "2026-12-27",
-    "text": "Mobile scores are usually much lower than desktop in Lighthouse, and Google ranks on mobile. Test both in one run and see where the gap is:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf"
-  },
-  {
-    "date": "2026-12-28",
-    "text": "Accessibility and SEO overlap: alt text on images, descriptive link text, a clear heading structure and captions on videos help both humans and search engines.\n#WebPerf #SEO"
-  },
-  {
-    "date": "2026-12-29",
-    "text": "Turn a backlog of recordings into text over the holidays: bulk transcription handles many files in one run, each with its own SRT file.\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber\n#Transcription"
-  },
-  {
-    "date": "2026-12-30",
-    "text": "Speed checklist: compressed images, lazy-loaded below-the-fold media, deferred JS, cached static files, few third-party scripts, a fast host. Six items, most of the gains.\n#WebPerf"
-  },
-  {
-    "date": "2026-12-31",
-    "text": "Thanks for following this year. Plan for 2027: audit once a quarter, test speed after every release, and turn recordings into text instead of letting them pile up."
+    "text": "Plan for next month: pick three client sites, run a full audit, fix the top five issues on each, and re-run. Small, repeatable, and easy to report on:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   }
 ]
