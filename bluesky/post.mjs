@@ -33,6 +33,17 @@ for (const m of text.matchAll(/https?:\/\/[^\s)]+/g)) {
   });
 }
 
+// Make #hashtags clickable and discoverable in Bluesky hashtag feeds.
+for (const m of text.matchAll(/(^|\s)#([A-Za-z][A-Za-z0-9_]{1,63})/g)) {
+  const start = m.index + m[1].length;
+  const byteStart = enc.encode(text.slice(0, start)).length;
+  const byteEnd = byteStart + enc.encode('#' + m[2]).length;
+  facets.push({
+    index: { byteStart, byteEnd },
+    features: [{ $type: 'app.bsky.richtext.facet#tag', tag: m[2] }],
+  });
+}
+
 const record = {
   $type: 'app.bsky.feed.post',
   text,

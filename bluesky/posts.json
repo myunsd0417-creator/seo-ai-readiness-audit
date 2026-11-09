@@ -21,27 +21,27 @@
   },
   {
     "date": "2026-11-12",
-    "text": "Is your site ready for AI search? Check robots.txt for AI crawlers, add a clear title and description to every page, and consider an llms.txt file. This tool checks all of it in one run:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Is your site ready for AI search? Check robots.txt for AI crawlers, add a clear title and description to every page, and consider an llms.txt file. This tool checks all of it in one run:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
   },
   {
     "date": "2026-11-13",
-    "text": "Canonical tags tell search engines which URL is the \"real\" one when the same content lives at several addresses (http/https, with/without www, URL parameters). Missing canonicals = diluted signals."
+    "text": "Canonical tags tell search engines which URL is the \"real\" one when the same content lives at several addresses (http/https, with/without www, URL parameters). Missing canonicals = diluted signals.\n#SEO"
   },
   {
     "date": "2026-11-14",
-    "text": "llms.txt is a simple Markdown file at your site root that summarizes your important pages for AI models. It's still a proposal, but it's cheap to add and easy to keep updated."
+    "text": "llms.txt is a simple Markdown file at your site root that summarizes your important pages for AI models. It's still a proposal, but it's cheap to add and easy to keep updated.\n#SEO #AISearch"
   },
   {
     "date": "2026-11-15",
-    "text": "Images without alt text are invisible to screen readers and give search engines less context. Describe what the image shows in a short, plain sentence."
+    "text": "Images without alt text are invisible to screen readers and give search engines less context. Describe what the image shows in a short, plain sentence.\n#WebPerf"
   },
   {
     "date": "2026-11-16",
-    "text": "A page set to noindex by accident can stay hidden from Google for months. Check both the meta robots tag and the X-Robots-Tag HTTP header. This audit flags both on every page:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "A page set to noindex by accident can stay hidden from Google for months. Check both the meta robots tag and the X-Robots-Tag HTTP header. This audit flags both on every page:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO"
   },
   {
     "date": "2026-11-17",
-    "text": "Thin pages (very little text, no clear purpose) rarely rank and rarely get cited by AI answers. Merge them, expand them, or noindex them."
+    "text": "Thin pages (very little text, no clear purpose) rarely rank and rarely get cited by AI answers. Merge them, expand them, or noindex them.\n#SEO"
   },
   {
     "date": "2026-11-18",
@@ -49,35 +49,35 @@
   },
   {
     "date": "2026-11-19",
-    "text": "Run a full-site SEO + AI search readiness audit: per-page issues, an SEO score, an AI readiness score, AI crawler access, broken links and a ready-to-use llms.txt. No setup:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Run a full-site SEO + AI search readiness audit: per-page issues, an SEO score, an AI readiness score, AI crawler access, broken links and a ready-to-use llms.txt. No setup:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
   },
   {
     "date": "2026-11-20",
-    "text": "Scanned PDFs are just pictures of text. To search or copy them you need OCR. This one reads digital PDF pages exactly and OCRs only the scanned ones, with per-page confidence:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
+    "text": "Scanned PDFs are just pictures of text. To search or copy them you need OCR. This one reads digital PDF pages exactly and OCRs only the scanned ones, with per-page confidence:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
   },
   {
     "date": "2026-11-21",
-    "text": "Missing Open Graph tags mean ugly link previews on social apps: no image, random text. og:title and og:image take two minutes to add and make every share look better."
+    "text": "Missing Open Graph tags mean ugly link previews on social apps: no image, random text. og:title and og:image take two minutes to add and make every share look better.\n#WebPerf #SEO"
   },
   {
     "date": "2026-11-22",
-    "text": "Missing a mobile viewport meta tag? Your page may render as a tiny desktop layout on phones. Google uses mobile-first indexing, so this matters for rankings too. Check yours here:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Missing a mobile viewport meta tag? Your page may render as a tiny desktop layout on phones. Google uses mobile-first indexing, so this matters for rankings too. Check yours here:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO"
   },
   {
     "date": "2026-11-23",
-    "text": "GEO (generative engine optimization) is mostly good SEO done well: clear headings, direct answers, accurate facts, and pages that AI crawlers are allowed to read."
+    "text": "GEO (generative engine optimization) is mostly good SEO done well: clear headings, direct answers, accurate facts, and pages that AI crawlers are allowed to read.\n#SEO #AISearch"
   },
   {
     "date": "2026-11-24",
-    "text": "Before blocking AI crawlers, decide what you want. Blocking GPTBot stops training crawls, while OAI-SearchBot is used for ChatGPT search results. They are different bots."
+    "text": "Before blocking AI crawlers, decide what you want. Blocking GPTBot stops training crawls, while OAI-SearchBot is used for ChatGPT search results. They are different bots.\n#SEO #AISearch"
   },
   {
     "date": "2026-11-25",
-    "text": "Agencies: an AI search readiness score is an easy add-on to a normal SEO audit, and clients increasingly ask why ChatGPT never mentions them. This Actor exports an HTML report in English or Japanese:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Agencies: an AI search readiness score is an easy add-on to a normal SEO audit, and clients increasingly ask why ChatGPT never mentions them. This Actor exports an HTML report in English or Japanese:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
   },
   {
     "date": "2026-11-26",
-    "text": "Duplicate titles across many pages make it hard for search engines to tell them apart. Give each page a title that says what's unique about it."
+    "text": "Duplicate titles across many pages make it hard for search engines to tell them apart. Give each page a title that says what's unique about it.\n#SEO"
   },
   {
     "date": "2026-11-27",
@@ -85,7 +85,7 @@
   },
   {
     "date": "2026-11-28",
-    "text": "Want an llms.txt but don't want to write it by hand? This Actor crawls your site and generates one from your own pages, along with a full SEO and AI readiness report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Want an llms.txt but don't want to write it by hand? This Actor crawls your site and generates one from your own pages, along with a full SEO and AI readiness report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO #AISearch"
   },
   {
     "date": "2026-11-29",
@@ -93,47 +93,47 @@
   },
   {
     "date": "2026-11-30",
-    "text": "Don't rely on one audit. Sites change: new pages, new plugins, a robots.txt edit by someone on the team. A monthly check catches problems before traffic drops."
+    "text": "Don't rely on one audit. Sites change: new pages, new plugins, a robots.txt edit by someone on the team. A monthly check catches problems before traffic drops.\n#SEO"
   },
   {
     "date": "2026-12-01",
-    "text": "Checklist for any new page: unique title, meta description, one H1, canonical, alt text on images, internal links in and out, indexable. Or check a whole site at once:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Checklist for any new page: unique title, meta description, one H1, canonical, alt text on images, internal links in and out, indexable. Or check a whole site at once:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#WebPerf #SEO"
   },
   {
     "date": "2026-12-02",
-    "text": "Receipts piling up? OCR turns photos and scans into text you can paste into a spreadsheet. Works with English and Japanese receipts, pay per page:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
+    "text": "Receipts piling up? OCR turns photos and scans into text you can paste into a spreadsheet. Works with English and Japanese receipts, pay per page:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
   },
   {
     "date": "2026-12-03",
-    "text": "Tip: compare your AI crawler rules with a competitor's robots.txt. You can learn a lot about how other sites approach AI search just by reading that one file."
+    "text": "Tip: compare your AI crawler rules with a competitor's robots.txt. You can learn a lot about how other sites approach AI search just by reading that one file.\n#SEO #AISearch"
   },
   {
     "date": "2026-12-04",
-    "text": "Developers: this audit also works as a tool for AI agents through the Apify MCP server, so an agent can audit any site on request and return structured results:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Developers: this audit also works as a tool for AI agents through the Apify MCP server, so an agent can audit any site on request and return structured results:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#MCP #SEO"
   },
   {
     "date": "2026-12-05",
-    "text": "Good SEO in one sentence: make every page easy to find, easy to understand, and genuinely useful. Everything else is details."
+    "text": "Good SEO in one sentence: make every page easy to find, easy to understand, and genuinely useful. Everything else is details.\n#SEO"
   },
   {
     "date": "2026-12-06",
-    "text": "End-of-year site check: run one full audit, fix the top 10 issues, and start next year with a clean, AI-search-ready site. Free to try on Apify:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "End-of-year site check: run one full audit, fix the top 10 issues, and start next year with a clean, AI-search-ready site. Free to try on Apify:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#SEO"
   },
   {
     "date": "2026-12-07",
-    "text": "Core Web Vitals in one line each: LCP = how fast the main content shows (aim under 2.5s). CLS = how much the layout jumps (under 0.1). INP/TBT = how quickly the page reacts to taps."
+    "text": "Core Web Vitals in one line each: LCP = how fast the main content shows (aim under 2.5s). CLS = how much the layout jumps (under 0.1). INP/TBT = how quickly the page reacts to taps.\n#WebPerf #CoreWebVitals"
   },
   {
     "date": "2026-12-08",
-    "text": "The fastest page-speed win on most sites: compress and resize hero images. A 3 MB photo shown at 800px wide is the classic cause of a slow LCP."
+    "text": "The fastest page-speed win on most sites: compress and resize hero images. A 3 MB photo shown at 800px wide is the classic cause of a slow LCP.\n#WebPerf"
   },
   {
     "date": "2026-12-09",
-    "text": "Checking PageSpeed one URL at a time gets old fast. This runs Lighthouse on a whole list of URLs, mobile or desktop, and returns scores, Core Web Vitals and the top fixes. No API key:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+    "text": "Checking PageSpeed one URL at a time gets old fast. This runs Lighthouse on a whole list of URLs, mobile or desktop, and returns scores, Core Web Vitals and the top fixes. No API key:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf #CoreWebVitals"
   },
   {
     "date": "2026-12-10",
-    "text": "Meeting recordings are searchable gold if they're text. Transcribe once, then you can search, quote and summarize instead of scrubbing through an hour of audio."
+    "text": "Meeting recordings are searchable gold if they're text. Transcribe once, then you can search, quote and summarize instead of scrubbing through an hour of audio.\n#Transcription"
   },
   {
     "date": "2026-12-11",
@@ -141,35 +141,35 @@
   },
   {
     "date": "2026-12-12",
-    "text": "Need subtitles for a video? Whisper can produce timestamped SRT files from MP4, WebM or MP3, in Japanese and 90+ other languages. Pay per audio minute:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber"
+    "text": "Need subtitles for a video? Whisper can produce timestamped SRT files from MP4, WebM or MP3, in Japanese and 90+ other languages. Pay per audio minute:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber\n#Whisper #Transcription"
   },
   {
     "date": "2026-12-13",
-    "text": "Lab data vs field data: Lighthouse simulates a mid-range phone on a slow network. Real users may be faster or slower. Use lab tests to find problems, field data to confirm them."
+    "text": "Lab data vs field data: Lighthouse simulates a mid-range phone on a slow network. Real users may be faster or slower. Use lab tests to find problems, field data to confirm them.\n#WebPerf"
   },
   {
     "date": "2026-12-14",
-    "text": "Japanese OCR tip: vertical text (縦書き) needs a vertical model. This OCR Actor supports both horizontal and vertical Japanese, plus English, Chinese and Korean:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
+    "text": "Japanese OCR tip: vertical text (縦書き) needs a vertical model. This OCR Actor supports both horizontal and vertical Japanese, plus English, Chinese and Korean:\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
   },
   {
     "date": "2026-12-15",
-    "text": "Compare your homepage speed against competitors in one run: put all the URLs in, get performance scores and LCP/CLS side by side.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+    "text": "Compare your homepage speed against competitors in one run: put all the URLs in, get performance scores and LCP/CLS side by side.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf"
   },
   {
     "date": "2026-12-16",
-    "text": "Tip for podcasters: a transcript of each episode gives search engines text to index, helps deaf and hard-of-hearing listeners, and makes writing show notes much faster."
+    "text": "Tip for podcasters: a transcript of each episode gives search engines text to index, helps deaf and hard-of-hearing listeners, and makes writing show notes much faster.\n#Transcription #Podcast"
   },
   {
     "date": "2026-12-17",
-    "text": "Layout shift (CLS) usually comes from images without width/height, ads or embeds that load late, and web fonts swapping. Reserve space for anything that loads after the text."
+    "text": "Layout shift (CLS) usually comes from images without width/height, ads or embeds that load late, and web fonts swapping. Reserve space for anything that loads after the text.\n#WebPerf"
   },
   {
     "date": "2026-12-18",
-    "text": "Japanese transcription tip: set the language to Japanese instead of auto-detect when the audio has a lot of English loanwords. It keeps the output in natural Japanese text."
+    "text": "Japanese transcription tip: set the language to Japanese instead of auto-detect when the audio has a lot of English loanwords. It keeps the output in natural Japanese text.\n#Transcription"
   },
   {
     "date": "2026-12-19",
-    "text": "Agencies: a monthly speed report is an easy retainer add-on. Schedule a Lighthouse run on your clients' key pages and send the color-coded HTML report.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+    "text": "Agencies: a monthly speed report is an easy retainer add-on. Schedule a Lighthouse run on your clients' key pages and send the color-coded HTML report.\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf"
   },
   {
     "date": "2026-12-20",
@@ -177,43 +177,43 @@
   },
   {
     "date": "2026-12-21",
-    "text": "Interviews, lectures, voice memos: paste direct file links and get full text, timestamped segments and SRT subtitles back. Whisper, no API key needed:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber"
+    "text": "Interviews, lectures, voice memos: paste direct file links and get full text, timestamped segments and SRT subtitles back. Whisper, no API key needed:\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber\n#Whisper #Transcription"
   },
   {
     "date": "2026-12-22",
-    "text": "Caching matters: static files like images, CSS and JS should have long cache lifetimes so repeat visitors don't download them again."
+    "text": "Caching matters: static files like images, CSS and JS should have long cache lifetimes so repeat visitors don't download them again.\n#WebPerf"
   },
   {
     "date": "2026-12-23",
-    "text": "Before redesigning a slow site, measure it. Often three fixes (images, unused JS, a slow third-party script) recover most of the speed."
+    "text": "Before redesigning a slow site, measure it. Often three fixes (images, unused JS, a slow third-party script) recover most of the speed.\n#WebPerf"
   },
   {
     "date": "2026-12-24",
-    "text": "Year-end site check: one SEO + AI search readiness audit, one page speed run on your top pages. Fix the top 5 issues from each and you're ahead of most sites.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Year-end site check: one SEO + AI search readiness audit, one page speed run on your top pages. Fix the top 5 issues from each and you're ahead of most sites.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n#WebPerf #SEO"
   },
   {
     "date": "2026-12-25",
-    "text": "Fonts can slow pages down too. Use font-display: swap, load only the weights you use, and consider system fonts for body text."
+    "text": "Fonts can slow pages down too. Use font-display: swap, load only the weights you use, and consider system fonts for body text.\n#WebPerf"
   },
   {
     "date": "2026-12-26",
-    "text": "Give an AI agent eyes for documents: an OCR tool callable via the Apify MCP server, returning structured text per page from images and PDFs.\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese"
+    "text": "Give an AI agent eyes for documents: an OCR tool callable via the Apify MCP server, returning structured text per page from images and PDFs.\nhttps://apify.com/mirumiru_miru17/image-pdf-ocr-japanese\n#OCR #PDF"
   },
   {
     "date": "2026-12-27",
-    "text": "Mobile scores are usually much lower than desktop in Lighthouse, and Google ranks on mobile. Test both in one run and see where the gap is:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals"
+    "text": "Mobile scores are usually much lower than desktop in Lighthouse, and Google ranks on mobile. Test both in one run and see where the gap is:\nhttps://apify.com/mirumiru_miru17/page-speed-core-web-vitals\n#WebPerf"
   },
   {
     "date": "2026-12-28",
-    "text": "Accessibility and SEO overlap: alt text on images, descriptive link text, a clear heading structure and captions on videos help both humans and search engines."
+    "text": "Accessibility and SEO overlap: alt text on images, descriptive link text, a clear heading structure and captions on videos help both humans and search engines.\n#WebPerf #SEO"
   },
   {
     "date": "2026-12-29",
-    "text": "Turn a backlog of recordings into text over the holidays: bulk transcription handles many files in one run, each with its own SRT file.\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber"
+    "text": "Turn a backlog of recordings into text over the holidays: bulk transcription handles many files in one run, each with its own SRT file.\nhttps://apify.com/mirumiru_miru17/audio-video-transcriber\n#Transcription"
   },
   {
     "date": "2026-12-30",
-    "text": "Speed checklist: compressed images, lazy-loaded below-the-fold media, deferred JS, cached static files, few third-party scripts, a fast host. Six items, most of the gains."
+    "text": "Speed checklist: compressed images, lazy-loaded below-the-fold media, deferred JS, cached static files, few third-party scripts, a fast host. Six items, most of the gains.\n#WebPerf"
   },
   {
     "date": "2026-12-31",
