@@ -25,11 +25,16 @@ let sent = [];
 try { sent = JSON.parse(readFileSync(sentFile, 'utf8')); } catch {}
 
 const targets = [];
-for (let i = 1; i <= days; i++) {
+for (let i = 0; i <= days; i++) {
   const date = jstDate(i);
   if (sent.includes(date)) continue;
   const entry = posts.find((p) => p.date === date);
-  if (entry) targets.push({ date, text: entry.text, dueAt: dueAtUtc(date, entry.time) });
+  if (!entry) continue;
+  let dueAt = dueAtUtc(date, entry.time);
+  // If GitHub ran late and today's slot already passed, post it soon instead of skipping the day.
+  const soon = new Date(Date.now() + 10 * 60e3).toISOString();
+  if (dueAt < soon) dueAt = soon;
+  targets.push({ date, text: entry.text, dueAt });
 }
 if (!targets.length) {
   console.log('No posts to schedule for the next', days, 'day(s).');
