@@ -3,7 +3,7 @@ name: Threads via Buffer
 on:
   schedule:
     # Every hour (GitHub often skips or delays scheduled runs). Each run sends today
-    # plus the next 3 days that are not yet in Buffer. sent.json prevents duplicates.
+    # plus the next 8 days that are not yet in Buffer (Buffer free plan holds 10). sent.json prevents duplicates.
     - cron: '13 * * * *'
   workflow_dispatch:
     inputs:
@@ -35,7 +35,7 @@ jobs:
         run: node threads/schedule.mjs
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-          DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '3' }}
+          DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '8' }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
       - name: Save sent dates
         run: |
