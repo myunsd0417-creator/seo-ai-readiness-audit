@@ -1,28 +1,72 @@
 {
-  "title": "SEO audit input",
+  "title": "SEO & AI search monitor input",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
+    "startUrls": {
+      "title": "Websites to monitor",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One or more websites (home page URL), e.g. https://example.com. Only pages on the same hostname are crawled. Add all your client sites to monitor them in one scheduled run.",
+      "prefill": ["https://apify.com"]
+    },
     "startUrl": {
-      "title": "Website URL",
+      "title": "Website URL (single site, legacy)",
       "type": "string",
       "editor": "textfield",
-      "description": "Home page (or any page) of the website to audit, e.g. https://example.com. Only pages on the same hostname are crawled.",
-      "prefill": "https://apify.com"
+      "description": "Kept for backward compatibility. Use \"Websites to monitor\" instead."
     },
     "maxPages": {
-      "title": "Max pages",
+      "title": "Max pages per site",
       "type": "integer",
       "minimum": 1,
       "maximum": 2000,
       "default": 50,
-      "description": "Maximum number of pages to audit. You pay per audited page, so this also caps the cost of a run."
+      "description": "Maximum number of pages to audit per website. You pay per audited page, so this also caps the cost of a run. Keep it the same between scheduled runs for fair comparisons."
+    },
+    "monitorChanges": {
+      "title": "Compare with the previous run",
+      "type": "boolean",
+      "default": true,
+      "sectionCaption": "Monitoring & alerts",
+      "sectionDescription": "Schedule this Actor (e.g. weekly) and every run is compared with the previous run of the same site.",
+      "description": "Save results in your account (key-value store \"seo-ai-monitor-state\") and report what changed since the last run: score drops, pages that became noindex, newly blocked AI crawlers, new broken links, removed llms.txt or sitemap."
+    },
+    "alertWebhookUrl": {
+      "title": "Alert webhook URL (Slack, Discord, Make, Zapier, n8n)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Optional. A Slack or Discord incoming webhook, or any URL that accepts a JSON POST. You get a short message listing the regressions and a link to the report."
+    },
+    "alertOn": {
+      "title": "Send alert when",
+      "type": "string",
+      "editor": "select",
+      "enum": ["regressions", "changes", "always"],
+      "enumTitles": ["Something got worse", "Anything changed", "Every run"],
+      "default": "regressions",
+      "description": "When to call the alert webhook."
+    },
+    "scoreDropThreshold": {
+      "title": "Score change threshold (points)",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 3,
+      "description": "A site or page score change smaller than this is ignored."
+    },
+    "failOnRegression": {
+      "title": "Mark run as failed on regression",
+      "type": "boolean",
+      "default": false,
+      "description": "Mark the run as failed when something got worse. Useful with Apify's built-in email notifications for failed runs (no webhook needed)."
     },
     "checkExternalLinks": {
       "title": "Check external links",
       "type": "boolean",
       "default": false,
-      "description": "Also check up to 300 outbound links for 404s (slower)."
+      "sectionCaption": "Audit options",
+      "description": "Also check up to 300 outbound links per site for 404s (slower)."
     },
     "generateLlmsTxt": {
       "title": "Generate llms.txt draft",
@@ -34,19 +78,10 @@
       "title": "Report language",
       "type": "string",
       "editor": "select",
-      "enum": [
-        "en",
-        "ja"
-      ],
-      "enumTitles": [
-        "English",
-        "日本語"
-      ],
+      "enum": ["en", "ja"],
+      "enumTitles": ["English", "日本語"],
       "default": "en",
-      "description": "Language of the issue texts and the HTML report."
+      "description": "Language of the issue texts, alerts and the HTML report."
     }
-  },
-  "required": [
-    "startUrl"
-  ]
+  }
 }

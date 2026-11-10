@@ -1,9 +1,9 @@
 {
   "actorSpecification": 1,
   "name": "seo-ai-readiness-audit",
-  "title": "SEO Audit & AI Search Readiness Checker + llms.txt Generator",
-  "description": "Audit a whole website for SEO and AI search (GEO/AEO) readiness. Get an SEO score, an AI-readiness score, AI crawler access check (GPTBot, ClaudeBot, PerplexityBot…), broken links, and a ready-to-publish llms.txt. English/Japanese report. Pay per page.",
-  "version": "0.2",
+  "title": "SEO & AI Search Monitor: Weekly Audit, Alerts + llms.txt",
+  "description": "Schedule weekly SEO and AI search (GEO/AEO) audits for one or many sites. Get alerts in Slack/Discord when a score drops, a page turns noindex, an AI crawler (GPTBot, PerplexityBot…) gets blocked or links break. Plus llms.txt draft. Pay per page.",
+  "version": "0.3",
   "input": "./input_schema.json",
   "dockerfile": "./Dockerfile",
   "storages": {
@@ -14,11 +14,13 @@
           "title": "Pages",
           "transformation": {
             "fields": [
+              "site",
               "score",
+              "scoreChange",
               "url",
+              "newIssues",
               "issues",
-              "brokenLinks",
-              "structuredDataTypes"
+              "brokenLinks"
             ]
           },
           "display": {

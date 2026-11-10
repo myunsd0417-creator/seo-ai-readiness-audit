@@ -1,10 +1,22 @@
 {
   "actorOutputSchemaVersion": 1,
-  "title": "SEO audit results",
+  "title": "SEO & AI search monitor results",
   "properties": {
+    "report": {
+      "title": "HTML report",
+      "description": "Shareable HTML report in English or Japanese, with changes since the previous run.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/REPORT.html",
+      "type": "string"
+    },
+    "changes": {
+      "title": "Changes since last run",
+      "description": "Per site: regressed / improved / unchanged / baseline, score changes and the list of changes.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/CHANGES",
+      "type": "string"
+    },
     "pages": {
       "title": "Pages (worst first)",
-      "description": "One row per audited page with score, issues and broken links.",
+      "description": "One row per audited page with score, score change, new issues and broken links.",
       "template": "{{links.apiDefaultDatasetUrl}}/items",
       "type": "string"
     },
@@ -14,15 +26,9 @@
       "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY",
       "type": "string"
     },
-    "report": {
-      "title": "HTML report",
-      "description": "Shareable HTML report in English or Japanese.",
-      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/REPORT.html",
-      "type": "string"
-    },
     "llmsTxt": {
       "title": "llms.txt draft",
-      "description": "Ready-to-publish llms.txt generated from the crawled pages.",
+      "description": "Ready-to-publish llms.txt generated from the crawled pages (first site).",
       "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/llms.txt",
       "type": "string"
     }
