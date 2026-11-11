@@ -21,102 +21,114 @@
   },
   {
     "date": "2026-11-12",
-    "text": "A useful habit for agencies: re-audit every client site once a month. New pages, plugin updates and robots.txt edits quietly break SEO, and you want to catch it before the client does."
+    "text": "Websites break quietly. A plugin update sets key pages to noindex, and nobody notices until traffic is gone weeks later. A weekly automated check would have caught it on day one."
   },
   {
     "date": "2026-11-13",
-    "text": "You can schedule an Apify Actor to run automatically (daily, weekly, monthly) and get the results by email or webhook. Pair that with a full-site SEO + AI readiness audit and you have hands-off monitoring:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "New: my SEO & AI search audit now runs as a weekly monitor. Every run is compared with the last one, and you only hear about it when something got worse:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-14",
-    "text": "The fastest way to win a new SEO client: send them a short audit of their own site before the first call. Real issues on their real pages beat any sales deck."
+    "text": "Ask a client \"when did your robots.txt last change?\" Most don't know. One edit can block ChatGPT, Claude and Perplexity from the whole site. That's worth an automatic alert, not a yearly audit."
   },
   {
     "date": "2026-11-15",
-    "text": "Bulk audits: run the same full-site check across 10 or 50 client domains, then compare SEO scores and AI readiness scores side by side. Pay per page, no subscription to another SEO tool:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "What the monitor flags between runs: pages that turned noindex, AI search crawlers newly blocked, llms.txt or sitemap gone, new broken links, and score drops on any page.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-16",
-    "text": "llms.txt is becoming a common request in AI search (GEO) audits. Writing it by hand for a 200-page site is tedious. Generating it from the site's own pages takes seconds."
+    "text": "Most SEO damage isn't a penalty. It's a deploy, a theme update, or a staging setting that went live. The fix takes minutes. Finding out late is what costs money."
   },
   {
     "date": "2026-11-17",
-    "text": "Developers: this audit has a clean JSON output per page (score, issues, broken links, schema types), so it drops straight into your own dashboards or client reporting:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Agencies: put every client domain in one scheduled run. You get one report with all sites side by side, and alerts name the exact site and page that regressed:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-18",
-    "text": "Japanese clients? The audit report can be generated in Japanese as well as English, which saves translating findings for every client meeting."
+    "text": "Blocking AI training bots (GPTBot, ClaudeBot) is a policy choice. Blocking AI search bots (OAI-SearchBot, PerplexityBot) removes you from AI answers. Know which one changed."
   },
   {
     "date": "2026-11-19",
-    "text": "An AI readiness score is easier to sell than a list of 80 SEO issues. Clients understand \"62/100 for AI search\" instantly. The detail is there for whoever does the fixes."
+    "text": "Alerts go to Slack, Discord, Make, Zapier or n8n with one webhook URL. No webhook? Turn on \"fail on regression\" and Apify emails you when something breaks:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-20",
-    "text": "Building an AI agent that needs to audit websites? This Actor works as a tool through the Apify MCP server, so an agent can run a full-site audit on request and read structured results:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Sitemaps disappear more often than you'd think: a plugin removed, a CDN rule changed, a migration that forgot one file. Search engines notice before you do."
   },
   {
     "date": "2026-11-21",
-    "text": "Checklist for a GEO (AI search) audit: AI crawlers allowed in robots.txt, clear titles and descriptions, one H1, structured data, direct answers near the top, llms.txt. Most sites miss at least two."
+    "text": "The best SEO report for a client is short: \"Nothing broke this week.\" The second best: \"This broke on Tuesday, we fixed it Wednesday.\" Monitoring makes both possible."
   },
   {
     "date": "2026-11-22",
-    "text": "Freelancers: offer a fixed-price \"SEO + AI search readiness audit\" as an entry product. Run the audit, add your own notes on the top 10 fixes, and deliver the HTML report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "llms.txt is easy to publish and easy to lose during a redesign. The monitor checks it on every run and tells you the day it stops being reachable:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-23",
-    "text": "Broken internal links pile up quietly after redesigns and URL changes. On client sites with a few hundred pages, it's normal to find dozens. A full crawl is the only reliable way to catch them."
+    "text": "Retainer idea for freelancers: \"weekly SEO & AI search monitoring\" for a small monthly fee. The checks run automatically. You only step in when an alert arrives."
   },
   {
     "date": "2026-11-24",
-    "text": "Before and after: run an audit before you start work for a client and again after your fixes. The score change is the simplest proof of value you can show."
+    "text": "Japanese clients? Reports and alerts can be generated in Japanese as well as English, so you can forward them as they are.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-25",
-    "text": "Apify gives you free monthly credits to try Actors, so you can run a real audit on your own site first and see the report before using it for clients:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "A page score that drops from 95 to 60 overnight usually means a template changed: title, H1, canonical or structured data gone across many pages at once. Catch it early."
   },
   {
     "date": "2026-11-26",
-    "text": "Noindex by accident is one of the most expensive SEO mistakes, and it hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. Check both on every page."
+    "text": "Pricing is per audited page, no subscription. Example: 3 sites x 50 pages, checked weekly, is about 600 pages a month. Set a max cost per run and it never goes over:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-27",
-    "text": "Many sites block AI crawlers with a broad rule they added years ago for a different reason. Blocking training bots and blocking AI search bots are separate decisions. Audit before you decide."
+    "text": "Broken internal links pile up after URL changes. A one-time cleanup helps. A weekly check that lists only the new ones is what keeps the site clean."
   },
   {
     "date": "2026-11-28",
-    "text": "For agencies with many clients: run audits through the Apify API and pipe results into Google Sheets or your CRM. One integration, every client covered:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Developers: add the monitor after each deploy or on a daily schedule. The CHANGES output is plain JSON (regressed / improved / unchanged), easy to wire into CI or dashboards:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-11-29",
-    "text": "Duplicate titles and missing meta descriptions are the most common issues on small business sites. They're also the quickest wins to show a new client in week one."
+    "text": "\"Why did our traffic from ChatGPT drop?\" is a new question in client calls. Check robots.txt history first. A weekly monitor gives you the exact date it changed."
   },
   {
     "date": "2026-11-30",
-    "text": "Structured data (JSON-LD) is one of the clearest signals for both rich results and AI answers. The audit lists which schema types each page uses, so gaps are easy to spot."
+    "text": "First run saves a baseline. From the second run on, you see what changed: scores up or down, new issues per page, fixed links, new pages. No setup beyond a schedule:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-12-01",
-    "text": "End-of-year offer idea for agencies: a \"ready for AI search in 2027\" audit for existing clients. Same work, new framing, and a real reason to talk before budgets reset:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Good monitoring is quiet. If every run sends a message, people stop reading them. Alert only on regressions, and keep the full report one click away."
   },
   {
     "date": "2026-12-02",
-    "text": "Thin pages rarely rank and rarely get cited by AI answers. Merge them, expand them, or noindex them. A crawl that flags low word counts makes the list for you."
+    "text": "End-of-year idea for agencies: offer existing clients \"always-on SEO & AI search monitoring\" for 2027. Same tools, new recurring service:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-12-03",
-    "text": "Missing Open Graph tags make every shared link look broken on social apps. It's a two-minute fix that clients notice immediately."
+    "text": "Noindex hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. Server config changes can add the header without anyone touching the page."
   },
   {
     "date": "2026-12-04",
-    "text": "One run, one domain, everything: SEO score, AI readiness score, AI crawler access, broken links, per-page issues and a ready-to-publish llms.txt. English or Japanese report:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Building an AI agent that manages websites? The monitor works as a tool through the Apify MCP server, so an agent can check sites on a schedule and react to regressions:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
   },
   {
     "date": "2026-12-05",
-    "text": "Good SEO in one sentence: make every page easy to find, easy to understand, and genuinely useful. AI search rewards exactly the same things."
+    "text": "Structured data often breaks silently when a theme updates. Rich results vanish, AI answers cite you less, and nothing looks wrong on the page itself."
   },
   {
     "date": "2026-12-06",
-    "text": "Plan for next month: pick three client sites, run a full audit, fix the top five issues on each, and re-run. Small, repeatable, and easy to report on:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Simple routine: schedule a weekly check of every site you manage, send alerts to one Slack channel, fix what turns red. Fifteen minutes a week, no surprises:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-12-07",
+    "text": "SEO isn't set-and-forget, but it can be set-and-watch. Check automatically, react quickly, and spend your time on the work that actually grows traffic."
+  },
+  {
+    "date": "2026-12-08",
+    "text": "Try it on your own site first: run it once for a baseline, schedule it weekly, and see the first \"what changed\" report next week:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  },
+  {
+    "date": "2026-12-09",
+    "text": "Year-end checklist for site owners: robots.txt still allows AI search bots, sitemap reachable, llms.txt live, no accidental noindex, no new 404s. Then automate the checklist."
   }
 ]
