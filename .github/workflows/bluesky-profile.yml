@@ -1,0 +1,22 @@
+name: Bluesky profile
+
+# Runs when bluesky/profile.json changes, or by hand.
+on:
+  push:
+    branches: [main]
+    paths: ['bluesky/profile.json']
+  workflow_dispatch:
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node bluesky/setup-profile.mjs
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
