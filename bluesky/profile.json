@@ -1,5 +1,5 @@
 {
   "displayName": "mirumiru | SEO & AI search audits",
   "description": "Automated account. Daily tips on SEO, website audits and AI search (GEO) for agencies, freelancers and developers.\nApify Store developer.\nTool: https://apify.com/mirumiru_miru17/seo-ai-readiness-audit",
-  "pinnedText": "Hi! I build tools on Apify for website audits.\nMy Actor checks a whole site in one run: SEO score, AI search readiness score, AI crawler access (GPTBot, ClaudeBot, PerplexityBot), broken links, and a ready-to-use llms.txt. English or Japanese report.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+  "pinnedText": "I build website audit tools on Apify.\nOne run checks a whole site: SEO score, AI search readiness score, AI crawler access (GPTBot, ClaudeBot, PerplexityBot), broken links and a ready-to-use llms.txt. English or Japanese report.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
 }
