@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Is Your robots.txt Blocking ChatGPT, Perplexity or Claude? How to Check</title>
+<meta name="description" content="Which AI crawlers decide whether your site appears in ChatGPT, Perplexity and Claude answers, how to check your robots.txt in two minutes, and how to get an alert when it changes.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Is your robots.txt blocking ChatGPT, Perplexity or Claude?</h1>
+
+<p>One line in <code>robots.txt</code> can remove a site from AI answers. It often happens by accident: a security plugin, a CDN setting or a copied template adds a block for "AI bots", and nobody notices until traffic from AI assistants drops.</p>
+
+<p>This guide explains which AI crawlers matter, how to check your site in two minutes, and how to get an alert if it changes later.</p>
+
+<h2>Two kinds of AI crawlers</h2>
+<p>AI companies use different crawlers for different jobs. The difference matters:</p>
+<ul>
+<li><strong>Search and answer crawlers</strong> fetch pages so the assistant can show and cite them in answers. Block these and your site can stop appearing in that assistant's answers.</li>
+<li><strong>Training crawlers</strong> collect pages to train future models. Blocking these is a policy choice and does not remove you from search answers by itself.</li>
+</ul>
+
+<table>
+<tr><th>Company</th><th>Search / answer crawlers</th><th>Training crawlers</th></tr>
+<tr><td>OpenAI (ChatGPT)</td><td><code>OAI-SearchBot</code>, <code>ChatGPT-User</code></td><td><code>GPTBot</code></td></tr>
+<tr><td>Anthropic (Claude)</td><td><code>Claude-SearchBot</code>, <code>Claude-User</code></td><td><code>ClaudeBot</code></td></tr>
+<tr><td>Perplexity</td><td><code>PerplexityBot</code>, <code>Perplexity-User</code></td><td>—</td></tr>
+<tr><td>Google (Gemini)</td><td>Regular <code>Googlebot</code></td><td><code>Google-Extended</code> (a control token, not a separate crawler)</td></tr>
+</table>
+<p class="meta">Names come from each company's crawler documentation and can change. Check the official pages before you edit robots.txt.</p>
+
+<h2>Check your site in two minutes</h2>
+<ol>
+<li>Open <code>https://yourdomain.com/robots.txt</code> in a browser.</li>
+<li>Look for a <code>User-agent:</code> line with one of the names above, followed by <code>Disallow: /</code>.</li>
+<li>Also look at <code>User-agent: *</code>. If it has <code>Disallow: /</code>, every crawler is blocked, including Google.</li>
+</ol>
+
+<p>This blocks ChatGPT search:</p>
+<pre>User-agent: OAI-SearchBot
+Disallow: /</pre>
+
+<p>This blocks training only and keeps you in ChatGPT search answers:</p>
+<pre>User-agent: GPTBot
+Disallow: /
+
+User-agent: OAI-SearchBot
+Allow: /</pre>
+
+<div class="note">Some CDNs and hosting panels have a "block AI bots" switch that answers at the server level, not in robots.txt. If your robots.txt looks fine but AI assistants still cannot read your pages, check that setting too.</div>
+
+<h2>Other things that hide a page from AI answers</h2>
+<ul>
+<li>A <code>noindex</code> meta tag or <code>X-Robots-Tag</code> header, often added by a plugin update or a staging setting that went live</li>
+<li>A missing or broken XML sitemap</li>
+<li>Pages with almost no readable text (content only inside images or scripts)</li>
+</ul>
+
+<h2>Get an alert when it changes</h2>
+<p>Checking once is easy. The problem is that robots.txt and <code>noindex</code> settings change later, during an update, a redesign or a hosting move.</p>
+<p>I built a tool for this: <strong>SEO &amp; AI Search Monitor</strong> on the Apify Store. You enter one or more sites and schedule it weekly. Each run compares the result with the previous run and tells you only when something got worse, for example:</p>
+<ul>
+<li>an AI search crawler became blocked in robots.txt</li>
+<li>a page became <code>noindex</code></li>
+<li><code>llms.txt</code>, the sitemap or robots.txt disappeared</li>
+<li>new broken links, or a drop in the site's score</li>
+</ul>
+<p>Alerts can go to Slack, Discord or any webhook, or come as an email from Apify. It needs no API key, and you pay per page checked. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/seo-ai-readiness-audit">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>Search crawlers decide whether you appear in AI answers. Training crawlers do not.</li>
+<li>Check <code>/robots.txt</code> for the names in the table above, and for <code>User-agent: *</code> with <code>Disallow: /</code>.</li>
+<li>Settings change over time, so a scheduled check catches problems before traffic drops.</li>
+</ul>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a></footer>
+</body>
+</html>
