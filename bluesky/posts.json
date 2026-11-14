@@ -45,7 +45,7 @@
   },
   {
     "date": "2026-11-18",
-    "text": "Blocking AI training bots (GPTBot, ClaudeBot) is a policy choice. Blocking AI search bots (OAI-SearchBot, PerplexityBot) removes you from AI answers. Know which one changed."
+    "text": "Blocking AI training bots (GPTBot, ClaudeBot) is a policy choice. Blocking AI search bots (OAI-SearchBot, Claude-SearchBot, PerplexityBot) removes you from AI answers. Short guide on telling them apart:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/ai-crawler-robots-txt-check.html"
   },
   {
     "date": "2026-11-19",
@@ -89,7 +89,7 @@
   },
   {
     "date": "2026-11-29",
-    "text": "\"Why did our traffic from ChatGPT drop?\" is a new question in client calls. Check robots.txt history first. A weekly monitor gives you the exact date it changed."
+    "text": "\"Why did our traffic from ChatGPT drop?\" Start with robots.txt. This 2-minute check shows which line blocks AI search and which only blocks training:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/ai-crawler-robots-txt-check.html"
   },
   {
     "date": "2026-11-30",
