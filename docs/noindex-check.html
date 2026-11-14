@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Did Your Pages Turn noindex? How to Check in Two Minutes</title>
+<meta name="description" content="Where noindex hides (meta tag, HTTP header, CMS settings), why it removes pages from Google and AI answers, and how to check your site and get alerted when it changes.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Did your pages turn noindex? How to check in two minutes</h1>
+
+<p><code>noindex</code> tells search engines not to show a page in results. It is useful on purpose (thank-you pages, internal search results) and harmful by accident. When an important page turns <code>noindex</code>, it drops out of Google, and AI assistants that rely on search indexes stop finding it too.</p>
+
+<p>The problem is that nothing looks broken. The page still opens normally in a browser. You only notice when traffic falls.</p>
+
+<h2>How pages turn noindex by accident</h2>
+<ul>
+<li><strong>A staging setting goes live.</strong> Test sites are set to "hide from search engines", and the setting is copied to the real site during launch.</li>
+<li><strong>A CMS checkbox.</strong> WordPress has a "Discourage search engines from indexing this site" option. If it is ticked, the whole site is hidden.</li>
+<li><strong>An SEO plugin update or setting change</strong> marks a page type (categories, tags, products) as noindex.</li>
+<li><strong>A server or CDN rule</strong> adds an <code>X-Robots-Tag: noindex</code> header that you cannot see in the page itself.</li>
+</ul>
+
+<h2>The two places noindex hides</h2>
+<table>
+<tr><th>Where</th><th>What it looks like</th><th>How to see it</th></tr>
+<tr><td>In the page HTML</td><td><code>&lt;meta name="robots" content="noindex"&gt;</code></td><td>View the page source and search for "noindex"</td></tr>
+<tr><td>In the HTTP response header</td><td><code>X-Robots-Tag: noindex</code></td><td>Not visible in the page. Use a header checker or the command below</td></tr>
+</table>
+
+<h2>Check your site in two minutes</h2>
+<ol>
+<li>Open your most important page (home page, a top product or service page).</li>
+<li>View the page source and search for <code>noindex</code>. If you find it in a <code>robots</code> meta tag, the page is hidden.</li>
+<li>Check the header too. In a terminal:
+<pre>curl -sI https://yourdomain.com/ | grep -i x-robots-tag</pre>
+No output means there is no <code>X-Robots-Tag</code> header.</li>
+<li>If you use Google Search Console, open the <strong>Pages</strong> report and look for pages listed as excluded by a noindex tag.</li>
+</ol>
+
+<div class="note">Do not block a page in robots.txt to "hide" it. If crawlers cannot fetch the page, they never see its noindex tag, and the URL can still show up in results. Use noindex alone for pages you want removed.</div>
+
+<h2>Get an alert when a page turns noindex</h2>
+<p>A one-time check tells you about today. Accidental noindex usually arrives later, with a plugin update, a redesign or a new deploy.</p>
+<p>I built <strong>SEO &amp; AI Search Monitor</strong> on the Apify Store for this. Schedule it weekly for one or many sites. Each run checks every page for noindex in both the meta tag and the <code>X-Robots-Tag</code> header, compares the result with the previous run, and alerts you only when something got worse, for example:</p>
+<ul>
+<li>a page became <code>noindex</code></li>
+<li>an AI search crawler became blocked in robots.txt</li>
+<li>the sitemap, robots.txt or <code>llms.txt</code> disappeared</li>
+<li>new broken links, or a drop in a page's score</li>
+</ul>
+<p>Alerts can go to Slack, Discord or any webhook, or come as an email from Apify. No API key is needed, and you pay per page checked. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/seo-ai-readiness-audit">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>noindex can be in the page HTML or in the HTTP header. Check both.</li>
+<li>Common causes: staging settings, a CMS checkbox, plugin changes and server rules.</li>
+<li>Don't combine noindex with a robots.txt block on the same page.</li>
+<li>A scheduled check catches it the week it happens, not months later.</li>
+</ul>
+
+<p>Related guide: <a href="ai-crawler-robots-txt-check.html">Is your robots.txt blocking ChatGPT, Perplexity or Claude?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a></footer>
+</body>
+</html>
