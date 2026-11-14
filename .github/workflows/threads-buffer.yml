@@ -35,6 +35,7 @@ jobs:
         run: node threads/schedule.mjs
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          POST_TIME: '20:30'
           DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '8' }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
       - name: Save sent dates
