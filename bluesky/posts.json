@@ -105,7 +105,7 @@
   },
   {
     "date": "2026-12-03",
-    "text": "Noindex hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. Server config changes can add the header without anyone touching the page."
+    "text": "Noindex hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. The page still opens fine, so nobody notices. 2-minute check for both:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/noindex-check.html"
   },
   {
     "date": "2026-12-04",
