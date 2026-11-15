@@ -38,7 +38,7 @@ for (let i = 0; i <= days; i++) {
       if (entry.optional) { sent.push(k); continue; }
       dueAt = soon;
     }
-    targets.push({ key: k, date, text: entry.text, dueAt });
+    targets.push({ key: k, date, text: entry.text, reply: entry.reply, dueAt });
   }
 }
 targets.sort((a, b) => a.dueAt.localeCompare(b.dueAt));
@@ -48,7 +48,7 @@ if (!targets.length) {
 }
 
 if (process.env.DRY_RUN === '1') {
-  for (const t of targets) console.log(`[dry run] ${t.date} at ${t.dueAt}\n${t.text}\n`);
+  for (const t of targets) console.log(`[dry run] ${t.key} at ${t.dueAt}\n${t.text}${t.reply ? `\n  └ reply: ${t.reply.split('\n')[0]}` : ''}\n`);
   process.exit(0);
 }
 
@@ -90,7 +90,11 @@ for (const t of targets) {
       channelId: ${JSON.stringify(channelId)},
       schedulingType: automatic,
       mode: customScheduled,
-      dueAt: ${JSON.stringify(t.dueAt)}
+      dueAt: ${JSON.stringify(t.dueAt)}${t.reply ? `,
+      metadata: { threads: { thread: [
+        { text: ${JSON.stringify(t.text)} },
+        { text: ${JSON.stringify(t.reply)} }
+      ] } }` : ''}
     }) {
       ... on PostActionSuccess { post { id } }
       ... on MutationError { message }
