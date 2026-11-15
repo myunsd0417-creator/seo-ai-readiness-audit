@@ -25,17 +25,23 @@ let sent = [];
 try { sent = JSON.parse(readFileSync(sentFile, 'utf8')); } catch {}
 
 const targets = [];
+const keyOf = (p) => p.id || p.date;
 for (let i = 0; i <= days; i++) {
   const date = jstDate(i);
-  if (sent.includes(date)) continue;
-  const entry = posts.find((p) => p.date === date);
-  if (!entry) continue;
-  let dueAt = dueAtUtc(date, entry.time);
-  // If GitHub ran late and today's slot already passed, post it soon instead of skipping the day.
-  const soon = new Date(Date.now() + 10 * 60e3).toISOString();
-  if (dueAt < soon) dueAt = soon;
-  targets.push({ date, text: entry.text, dueAt });
+  for (const entry of posts.filter((p) => p.date === date)) {
+    const k = keyOf(entry);
+    if (sent.includes(k)) continue;
+    let dueAt = dueAtUtc(date, entry.time);
+    // If GitHub ran late and the slot already passed: post the main post soon; skip optional extra posts.
+    const soon = new Date(Date.now() + 10 * 60e3).toISOString();
+    if (dueAt < soon) {
+      if (entry.optional) { sent.push(k); continue; }
+      dueAt = soon;
+    }
+    targets.push({ key: k, date, text: entry.text, dueAt });
+  }
 }
+targets.sort((a, b) => a.dueAt.localeCompare(b.dueAt));
 if (!targets.length) {
   console.log('No posts to schedule for the next', days, 'day(s).');
   process.exit(0);
@@ -76,7 +82,9 @@ if (!channelId) {
 }
 
 for (const t of targets) {
-  const data = await gql(`mutation {
+  let data;
+  try {
+    data = await gql(`mutation {
     createPost(input: {
       text: ${JSON.stringify(t.text)},
       channelId: ${JSON.stringify(channelId)},
@@ -88,9 +96,17 @@ for (const t of targets) {
       ... on MutationError { message }
     }
   }`);
+  } catch (err) {
+    console.log(`Stopped at ${t.key}: ${err.message}`);
+    break;
+  }
   const r = data.createPost;
-  if (r?.message) throw new Error(`Could not schedule ${t.date}: ${r.message}`);
-  console.log(`Scheduled ${t.date} (${t.dueAt}): ${r?.post?.id}`);
-  sent.push(t.date);
+  if (r?.message) {
+    // Usually the free plan's queue limit; the next run will try again once slots free up.
+    console.log(`Stopped at ${t.key}: ${r.message}`);
+    break;
+  }
+  console.log(`Scheduled ${t.key} (${t.dueAt}): ${r?.post?.id}`);
+  sent.push(t.key);
   writeFileSync(sentFile, JSON.stringify(sent.sort(), null, 0) + '\n');
 }
