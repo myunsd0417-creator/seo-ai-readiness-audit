@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2fa58f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="締切ノート">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!--PWA_HEAD_END-->
+<title>補助金 締切ノート｜見逃さないための管理ツール</title>
+<style>
+:root{
+  --ink:#2f3445;
+  --sub:#7b8194;
+  --line:#e9e6ef;
+  --teal:#2fa58f;
+  --teal2:#5cc6b0;
+  --coral:#ff8a7a;
+  --amber:#f3a742;
+  --red:#ec5b6c;
+  --gray:#b7b9c4;
+  --shadow:0 18px 38px -18px rgba(70,80,120,.45),0 4px 12px -4px rgba(70,80,120,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--ink);line-height:1.6;min-height:100vh;
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","BIZ UDPGothic","Yu Gothic UI","Yu Gothic","Meiryo",sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(120,210,190,.35),transparent 40%),
+    radial-gradient(circle at 95% 15%,rgba(255,180,160,.35),transparent 38%),
+    linear-gradient(170deg,#f4fbf8 0%,#f8f5fb 55%,#fdf4f0 100%);
+}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 60px}
+button{font-family:inherit}
+.hidden{display:none !important}
+
+header{text-align:center;margin:4px 0 18px}
+.tag{display:inline-block;font-size:12px;color:#2c8a78;background:rgba(255,255,255,.8);padding:4px 12px;border-radius:999px;box-shadow:0 2px 6px rgba(40,120,100,.12)}
+h1{font-size:23px;margin:10px 0 2px;letter-spacing:.02em}
+h1 .g{background:linear-gradient(90deg,#26a38b,#6a8cf0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:13px;color:var(--sub);margin:0}
+
+.card{background:linear-gradient(180deg,#fff,#fcfbfe);border-radius:24px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.95)}
+
+/* いちばん近い締切 */
+.hero{text-align:center;position:relative;overflow:hidden;padding:22px 18px}
+.hero::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;top:-110px;background:radial-gradient(circle,rgba(92,198,176,.25),transparent 70%)}
+.hero .lbl{font-size:13px;color:var(--sub);margin:0;position:relative}
+.hero .nm{font-size:17px;font-weight:bold;margin:4px 0 0;position:relative;word-break:break-all}
+.bigline{display:flex;justify-content:center;align-items:baseline;gap:6px;margin:4px 0 0;position:relative}
+.bigline .pre{font-size:22px;font-weight:bold;color:var(--sub)}
+.bigline .n{font-size:86px;font-weight:bold;line-height:1.05;letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#22a58c,#5f86ee);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 6px rgba(60,140,160,.25))}
+.bigline .u{font-size:26px;font-weight:bold;color:#5aa8a0}
+.hero.warn .bigline .n{background:linear-gradient(180deg,#f7a23b,#f0705e);-webkit-background-clip:text;background-clip:text}
+.hero.warn .bigline .u{color:#ef8b5e}
+.hero.danger .bigline .n{background:linear-gradient(180deg,#f2647a,#d13d8a);-webkit-background-clip:text;background-clip:text}
+.hero.danger .bigline .u{color:#e0587a}
+.today-msg{font-size:46px;font-weight:bold;margin:6px 0 0;position:relative;background:linear-gradient(90deg,#f2647a,#d13d8a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .dt{font-size:13px;color:var(--sub);margin:2px 0 0;position:relative}
+.empty-hero p{margin:6px 0;color:var(--sub);font-size:14px}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px;position:relative}
+.stat{background:#fff;border-radius:16px;padding:10px 4px;box-shadow:0 4px 10px -4px rgba(70,80,120,.25);text-align:center}
+.stat .k{display:block;font-size:11px;color:var(--sub)}
+.stat .v{display:block;font-size:17px;font-weight:bold;font-variant-numeric:tabular-nums;word-break:break-all}
+.stat .v small{font-size:11px;font-weight:normal}
+
+/* ボタン */
+.btn{display:block;width:100%;border:none;cursor:pointer;font-size:19px;font-weight:bold;letter-spacing:.05em;color:#fff;padding:18px 10px;border-radius:22px;margin:4px 0 18px;
+  background:linear-gradient(135deg,#2fb196 0%,#45b7a6 40%,#6c8cef 100%);
+  box-shadow:0 7px 0 #2f7f86,0 14px 26px -8px rgba(47,127,134,.7);transition:transform .08s,box-shadow .08s;text-shadow:0 1px 2px rgba(20,70,80,.3);-webkit-tap-highlight-color:transparent}
+.btn:active{transform:translateY(6px);box-shadow:0 1px 0 #2f7f86,0 5px 12px -6px rgba(47,127,134,.7)}
+.btn.coral{background:linear-gradient(135deg,#ff9a85,#f27b8f);box-shadow:0 7px 0 #c3586d,0 14px 26px -8px rgba(195,88,109,.6)}
+.btn.coral:active{box-shadow:0 1px 0 #c3586d}
+.btn.small{font-size:15px;padding:13px 10px;margin:0;border-radius:16px;box-shadow:0 5px 0 #2f7f86,0 10px 18px -8px rgba(47,127,134,.6)}
+.btn.small:active{transform:translateY(4px);box-shadow:0 1px 0 #2f7f86}
+.btn.ghost{background:#fff;color:var(--ink);text-shadow:none;box-shadow:0 5px 0 #d8d6e2,0 10px 18px -10px rgba(70,80,120,.4)}
+.btn.ghost:active{box-shadow:0 1px 0 #d8d6e2}
+.btn:focus-visible,.chip:focus-visible,.check:focus-visible{outline:3px solid #9fd9cc;outline-offset:2px}
+
+/* 一覧 */
+.sec-title{font-size:15px;font-weight:bold;margin:6px 4px 10px;display:flex;align-items:center;justify-content:space-between}
+.sec-title .cnt{font-size:12px;color:var(--sub);font-weight:normal}
+.item{position:relative;background:#fff;border-radius:20px;margin-bottom:12px;box-shadow:0 10px 24px -14px rgba(70,80,120,.45),0 2px 6px -2px rgba(70,80,120,.12);overflow:hidden}
+.item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--teal2)}
+.item.lv-warn::before{background:var(--amber)}
+.item.lv-danger::before{background:var(--red)}
+.item.lv-over::before,.item.lv-done::before{background:var(--gray)}
+.item-head{display:flex;gap:10px;align-items:center;padding:14px 14px 10px 18px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.item-main{flex:1;min-width:0}
+.item-name{font-weight:bold;font-size:15px;word-break:break-all}
+.item-meta{font-size:12px;color:var(--sub)}
+.pill{flex-shrink:0;text-align:center;min-width:72px;border-radius:14px;padding:6px 8px;background:#eaf8f4;color:#1f8f79;font-weight:bold;line-height:1.2}
+.pill b{font-size:22px;display:block;font-variant-numeric:tabular-nums}
+.pill span{font-size:11px}
+.lv-warn .pill{background:#fff3e2;color:#d27f12}
+.lv-danger .pill{background:#ffe9ec;color:#d2405a}
+.lv-over .pill,.lv-done .pill{background:#f1f1f5;color:#8a8d9a}
+.prog{display:flex;align-items:center;gap:8px;padding:0 14px 12px 18px;font-size:11px;color:var(--sub)}
+.bar{flex:1;height:8px;border-radius:99px;background:#efedf4;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.08)}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#4cc3a8,#6c8cef);transition:width .4s}
+.detail{border-top:1px dashed var(--line);padding:12px 14px 14px 18px}
+.detail h4{font-size:12px;color:var(--sub);margin:4px 0 6px;font-weight:normal}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{border:none;cursor:pointer;font-size:13px;padding:8px 12px;border-radius:999px;background:#f3f2f7;color:var(--ink);box-shadow:0 2px 0 #dedce7;transition:transform .06s}
+.chip:active{transform:translateY(2px);box-shadow:none}
+.chip.on{background:linear-gradient(135deg,#3db59c,#6c8cef);color:#fff;box-shadow:0 2px 0 #2f7f86}
+
+.checks{list-style:none;margin:0 0 10px;padding:0}
+.check{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:none;background:#f8f7fb;border-radius:12px;padding:10px 12px;margin-bottom:6px;font-size:14px;color:var(--ink);cursor:pointer}
+.check .box{width:22px;height:22px;border-radius:7px;flex-shrink:0;background:#fff;box-shadow:inset 0 0 0 2px #cfcde0;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:bold}
+.check.on{background:#eefaf6;color:#5e8d84}
+.check.on .box{background:linear-gradient(135deg,#3db59c,#6c8cef);box-shadow:none}
+.check.on .t{text-decoration:line-through}
+.memo{font-size:13px;background:#faf9fc;border-radius:12px;padding:10px 12px;white-space:pre-wrap;word-break:break-all;margin-bottom:10px}
+.memo a{color:#2f7fd0;word-break:break-all}
+.actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.act{border:none;cursor:pointer;font-size:12px;padding:10px 4px;border-radius:12px;background:#f3f2f7;color:var(--ink);box-shadow:0 3px 0 #dedce7}
+.act:active{transform:translateY(2px);box-shadow:none}
+.act.del.arm{background:#ffe3e8;color:#c43553;box-shadow:0 3px 0 #f2b6c3}
+
+.fold{background:none;border:none;width:100%;text-align:left;cursor:pointer;padding:0;color:inherit}
+.none{text-align:center;color:var(--sub);font-size:13px;padding:8px 0 4px}
+
+/* 探し方・バックアップ */
+.howto{font-size:13px}
+.howto ul{margin:6px 0 0;padding-left:18px}
+.howto li{margin-bottom:6px}
+.howto a{color:#2f7fd0}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.note{font-size:11px;color:var(--sub);text-align:center;line-height:1.7;margin-top:6px}
+.toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top));transform:translateX(-50%) translateY(-20px);background:rgba(40,46,64,.92);color:#fff;font-size:14px;padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;z-index:50;max-width:90%;text-align:center;z-index:60}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* 追加・編集シート */
+.overlay{position:fixed;inset:0;background:rgba(40,46,64,.35);z-index:30;display:flex;align-items:flex-end;justify-content:center}
+.sheet{width:100%;max-width:560px;max-height:92vh;overflow:auto;background:#fff;border-radius:26px 26px 0 0;padding:18px 18px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(40,46,64,.25);animation:up .25s ease-out}
+@media (min-width:600px){.overlay{align-items:center}.sheet{border-radius:26px}}
+@keyframes up{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
+.sheet h2{font-size:17px;margin:0 0 14px;display:flex;justify-content:space-between;align-items:center}
+.x{border:none;background:#f3f2f7;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--sub)}
+.field{margin-bottom:14px}
+.field label,.field .lab{display:block;font-size:14px;font-weight:bold;margin-bottom:6px}
+.opt{font-size:11px;font-weight:normal;color:#fff;background:#b7bccb;border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.inbox{display:flex;align-items:center;background:#f7f6fa;border-radius:14px;padding:0 12px;border:2px solid transparent;box-shadow:inset 0 2px 5px rgba(70,80,120,.1)}
+.inbox:focus-within{border-color:#9fd9cc;background:#fff}
+.inbox input,.inbox textarea{flex:1;min-width:0;width:100%;border:none;background:transparent;outline:none;font-size:16px;color:var(--ink);padding:12px 0;font-family:inherit}
+.inbox textarea{resize:vertical;min-height:64px}
+.inbox .unit{font-size:13px;color:var(--sub);margin-left:6px;white-space:nowrap}
+.inbox input.right{text-align:right;font-weight:bold;font-size:18px}
+.err{display:none;font-size:12px;color:#d2405a;margin-top:4px}
+.field.bad .inbox{border-color:#f29aab;background:#fff6f8}
+.field.bad .err{display:block}
+.hint{font-size:12px;color:var(--sub);margin-top:4px}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+
+.pop{animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{0%{transform:scale(.94);opacity:.5}100%{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.pop,.sheet{animation:none}.btn,.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="tag">プロンプト不要・登録不要・ネット不要</span>
+    <h1>補助金<span class="g">締切ノート</span></h1>
+    <p class="lead">見つけた補助金を入れるだけ。締切が近い順に並びます。</p>
+  </header>
+
+  <!-- いちばん近い締切 -->
+  <section class="card hero" id="hero" aria-live="polite"></section>
+
+  <button class="btn" id="addBtn" type="button">＋ 補助金を追加する</button>
+
+  <!-- 進行中 -->
+  <div class="sec-title"><span>締切が近い順</span><span class="cnt" id="activeCnt"></span></div>
+  <div id="activeList"></div>
+
+  <!-- 終わったもの -->
+  <div class="card" style="padding:14px 18px">
+    <button class="fold" id="doneFold" type="button" aria-expanded="false">
+      <div class="sec-title" style="margin:0"><span>終わったもの・締切がすぎたもの</span><span class="cnt" id="doneCnt"></span></div>
+    </button>
+    <div id="doneList" class="hidden" style="margin-top:12px"></div>
+  </div>
+
+  <!-- 探し方 -->
+  <section class="card howto">
+    <div class="sec-title" style="margin:0 0 4px"><span>補助金の探し先（無料・公的なサイト）</span></div>
+    <ul>
+      <li><b>ミラサポplus</b>（中小企業庁）… 国の人気の補助金がまとまっている<br><a href="https://mirasapo-plus.go.jp/" target="_blank" rel="noopener noreferrer">mirasapo-plus.go.jp</a></li>
+      <li><b>J-Net21 支援情報ヘッドライン</b>（中小機構）… 地域や目的で国・自治体の情報を探せる<br><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener noreferrer">j-net21.smrj.go.jp</a></li>
+      <li><b>jGrants</b>（デジタル庁）… 補助金の検索と電子申請ができる<br><a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener noreferrer">jgrants-portal.go.jp</a></li>
+      <li><b>お住まいの市区町村・都道府県のホームページ</b>、<b>商工会・商工会議所</b> … 地元だけの補助金はここに出ることが多い</li>
+    </ul>
+    <p class="note" style="text-align:left">※ リンクを押したときだけ、そのサイトが開きます。このツールが自動で通信することはありません。</p>
+  </section>
+
+  <!-- バックアップ -->
+  <section class="card">
+    <div class="sec-title" style="margin:0 0 10px"><span>データの保存・引っこし</span></div>
+    <div class="grid2">
+      <button class="btn small ghost" id="exportBtn" type="button">バックアップを保存</button>
+      <button class="btn small ghost" id="importBtn" type="button">バックアップから戻す</button>
+    </div>
+    <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+    <p class="hint">別のパソコンに移すときや、念のための控えに。ファイルが1つ保存されます。</p>
+    <div class="grid2" style="margin-top:12px">
+      <button class="btn small ghost" id="sampleBtn" type="button">見本を入れてみる</button>
+      <button class="btn small ghost" id="clearAllBtn" type="button">ぜんぶ消す</button>
+    </div>
+  </section>
+
+  <p class="note">※ 締切や金額は、必ず公式の募集ページ（公募要領）で確認してください。<br>入力した内容はこの端末のブラウザの中だけに保存され、外部には送られません。</p>
+</div>
+
+<!-- 追加・編集シート -->
+<div class="overlay hidden" id="overlay" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet">
+    <h2><span id="sheetTitle">補助金を追加</span><button class="x" id="closeBtn" type="button" aria-label="閉じる">×</button></h2>
+
+    <div class="field" id="f-name">
+      <label for="iName">補助金の名前</label>
+      <div class="inbox"><input id="iName" type="text" placeholder="例：〇〇市 店舗改装補助金" autocomplete="off"></div>
+      <div class="err">名前を入れてね（コピーして貼りつけでOK）</div>
+    </div>
+
+    <div class="field" id="f-date">
+      <label for="iDate">締切日</label>
+      <div class="inbox"><input id="iDate" type="date"></div>
+      <div class="err">締切日を選んでね</div>
+    </div>
+
+    <div class="field">
+      <label for="iAmount">もらえる金額の上限<span class="opt">任意</span></label>
+      <div class="inbox"><input id="iAmount" class="right" type="text" inputmode="numeric" placeholder="0" autocomplete="off"><span class="unit">円</span></div>
+      <div class="quick" id="amountQuick">
+        <button class="chip" type="button" data-v="100000">10万</button>
+        <button class="chip" type="button" data-v="300000">30万</button>
+        <button class="chip" type="button" data-v="500000">50万</button>
+        <button class="chip" type="button" data-v="1000000">100万</button>
+        <button class="chip" type="button" data-v="2000000">200万</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="lab">いまの状態</span>
+      <div class="chips" id="statusChips"></div>
+    </div>
+
+    <div class="field">
+      <label for="iUrl">公式ページのURL<span class="opt">任意</span></label>
+      <div class="inbox"><input id="iUrl" type="url" inputmode="url" placeholder="https://..." autocomplete="off"></div>
+    </div>
+
+    <div class="field">
+      <label for="iMemo">メモ<span class="opt">任意</span></label>
+      <div class="inbox"><textarea id="iMemo" placeholder="例：見積書は2社分いる"></textarea></div>
+    </div>
+
+    <button class="btn" id="saveBtn" type="button" style="margin-bottom:0">保存する</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== 計算（CALC_START） ===== */
+var STATUS = [
+  {k:"want",    t:"気になる"},
+  {k:"prep",    t:"準備中"},
+  {k:"applied", t:"申請した"},
+  {k:"won",     t:"採択された"},
+  {k:"skip",    t:"今回は見送り"}
+];
+var CHECKS = [
+  "募集のページ（公募要領）を読んだ",
+  "対象になるか確認した",
+  "GビズIDプライムを用意した",
+  "見積書をもらった",
+  "事業計画書を書いた",
+  "必要な書類をそろえた",
+  "申請した"
+];
+function ymdToUTC(s){
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || "");
+  if (!m) return NaN;
+  return Date.UTC(+m[1], +m[2] - 1, +m[3]);
+}
+function todayStr(d){
+  d = d || new Date();
+  function p(n){ return (n < 10 ? "0" : "") + n; }
+  return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+}
+// 締切まであと何日か（当日は0、すぎたらマイナス）
+function daysLeft(deadline, today){
+  var a = ymdToUTC(deadline), b = ymdToUTC(today);
+  if (isNaN(a) || isNaN(b)) return NaN;
+  return Math.round((a - b) / 86400000);
+}
+function isOpen(item){ return item.status === "want" || item.status === "prep"; }
+// 色分け：7日以内=danger、30日以内=warn、それ以外=ok、すぎた=over、終わった=done
+function level(item, today){
+  if (!isOpen(item)) return "done";
+  var d = daysLeft(item.deadline, today);
+  if (d < 0) return "over";
+  if (d <= 7) return "danger";
+  if (d <= 30) return "warn";
+  return "ok";
+}
+function splitItems(items, today){
+  var active = [], done = [];
+  items.forEach(function(it){
+    var lv = level(it, today);
+    (lv === "done" || lv === "over" ? done : active).push(it);
+  });
+  active.sort(function(a, b){ return daysLeft(a.deadline, today) - daysLeft(b.deadline, today); });
+  done.sort(function(a, b){ return daysLeft(b.deadline, today) - daysLeft(a.deadline, today); });
+  return {active: active, done: done};
+}
+function summary(items, today){
+  var s = splitItems(items, today), total = 0, soon = 0;
+  s.active.forEach(function(it){
+    if (it.amount > 0) total += it.amount;
+    if (daysLeft(it.deadline, today) <= 7) soon++;
+  });
+  return {count: s.active.length, total: total, soon: soon, nearest: s.active[0] || null};
+}
+function checkRate(item){
+  var c = item.checks || [], n = 0;
+  for (var i = 0; i < CHECKS.length; i++) if (c[i]) n++;
+  return {done: n, all: CHECKS.length};
+}
+// カレンダー用ファイル（締切日の終日予定＋7日前・前日にお知らせ）
+function makeICS(item, nowStamp){
+  function esc(s){ return String(s || "").replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1"); }
+  var d = item.deadline.replace(/-/g, "");
+  var nextUTC = new Date(ymdToUTC(item.deadline) + 86400000);
+  function p(n){ return (n < 10 ? "0" : "") + n; }
+  var d2 = nextUTC.getUTCFullYear() + p(nextUTC.getUTCMonth() + 1) + p(nextUTC.getUTCDate());
+  var desc = "補助金締切ノートから追加" + (item.url ? "\n" + item.url : "") + (item.memo ? "\n" + item.memo : "");
+  return [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//hojokin-shimekiri-note//JA", "CALSCALE:GREGORIAN",
+    "BEGIN:VEVENT",
+    "UID:" + item.id + "@hojokin-shimekiri-note",
+    "DTSTAMP:" + (nowStamp || "20260101T000000Z"),
+    "DTSTART;VALUE=DATE:" + d,
+    "DTEND;VALUE=DATE:" + d2,
+    "SUMMARY:" + esc("【締切】" + item.name),
+    "DESCRIPTION:" + esc(desc),
+    "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + esc("あと7日：" + item.name), "TRIGGER:-P7D", "END:VALARM",
+    "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + esc("明日まで：" + item.name), "TRIGGER:-P1D", "END:VALARM",
+    "END:VEVENT", "END:VCALENDAR"
+  ].join("\r\n") + "\r\n";
+}
+function toNum(v){
+  var s = String(v == null ? "" : v).replace(/[０-９]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); });
+  s = s.replace(/[,，、\s円]/g, "");
+  if (s === "") return NaN;
+  var m = /^(\d+(?:\.\d+)?)万$/.exec(s);
+  if (m) return Math.round(parseFloat(m[1]) * 10000);
+  var n = Number(s);
+  return isFinite(n) ? n : NaN;
+}
+/* ===== 計算（CALC_END） ===== */
+
+(function(){
+  var KEY = "hojokinShimekiri_v1";
+  var items = [];
+  var editingId = null, formStatus = "want", openIds = {}, armedDel = null, doneOpen = false;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(id){ return document.getElementById(id); }
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      var d = raw ? JSON.parse(raw) : [];
+      items = Array.isArray(d) ? d.filter(valid) : [];
+    }catch(e){ items = []; }
+  }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(items)); }catch(e){} }
+  function valid(it){ return it && typeof it.name === "string" && !isNaN(ymdToUTC(it.deadline)); }
+  function newId(){ return "h" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP"); }
+  function man(n){ return n >= 10000 && n % 10000 === 0 ? (n / 10000).toLocaleString("ja-JP") + "万" : yen(n); }
+  function jdate(s){
+    var t = new Date(ymdToUTC(s)), w = "日月火水木金土"[t.getUTCDay()];
+    return t.getUTCFullYear() + "年" + (t.getUTCMonth() + 1) + "月" + t.getUTCDate() + "日（" + w + "）";
+  }
+  function safeUrl(u){ return /^https?:\/\//i.test(u || "") ? u : ""; }
+  function toast(msg){
+    var t = $("toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toast._t); toast._t = setTimeout(function(){ t.classList.remove("show"); }, 2200);
+  }
+  function countUp(node, to){
+    if (reduce){ node.textContent = to.toLocaleString("ja-JP"); return; }
+    var st = null;
+    function step(t){
+      if (!st) st = t;
+      var p = Math.min(1, (t - st) / 800), e = 1 - Math.pow(1 - p, 3);
+      node.textContent = Math.round(to * e).toLocaleString("ja-JP");
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---- いちばん近い締切 ---- */
+  function renderHero(today, animate){
+    var h = $("hero"), s = summary(items, today);
+    h.className = "card hero";
+    if (!s.nearest){
+      h.innerHTML = '<div class="empty-hero"><p class="lbl">いちばん近い締切</p><p style="font-size:17px;font-weight:bold;color:var(--ink)">まだ登録がありません</p><p>見つけた補助金を「＋ 補助金を追加する」から入れてね。<br>まず試すなら、下の「見本を入れてみる」が便利です。</p></div>';
+      return;
+    }
+    var it = s.nearest, d = daysLeft(it.deadline, today), lv = level(it, today);
+    if (lv === "danger") h.classList.add("danger"); else if (lv === "warn") h.classList.add("warn");
+    var big = d === 0
+      ? '<div class="today-msg">今日まで！</div>'
+      : '<div class="bigline"><span class="pre">あと</span><span class="n" id="heroN">' + d + '</span><span class="u">日</span></div>';
+    h.innerHTML =
+      '<p class="lbl">いちばん近い締切</p>' +
+      '<p class="nm">' + esc(it.name) + '</p>' + big +
+      '<p class="dt">締切 ' + jdate(it.deadline) + '</p>' +
+      '<div class="stats">' +
+        '<div class="stat"><span class="k">進行中</span><span class="v">' + s.count + '<small>件</small></span></div>' +
+        '<div class="stat"><span class="k">7日以内</span><span class="v">' + s.soon + '<small>件</small></span></div>' +
+        '<div class="stat"><span class="k">上限の合計</span><span class="v">' + man(s.total) + '<small>円</small></span></div>' +
+      '</div>';
+    if (animate){
+      h.classList.remove("pop"); void h.offsetWidth; h.classList.add("pop");
+      if (d > 0) countUp($("heroN"), d);
+    }
+  }
+
+  /* ---- 一覧 ---- */
+  function itemHTML(it, today){
+    var d = daysLeft(it.deadline, today), lv = level(it, today), r = checkRate(it);
+    var st = STATUS.filter(function(x){ return x.k === it.status; })[0] || STATUS[0];
+    var pill;
+    if (lv === "done") pill = '<span>' + esc(st.t) + '</span>';
+    else if (d < 0) pill = '<b style="font-size:15px">締切</b><span>すぎました</span>';
+    else if (d === 0) pill = '<b style="font-size:17px">今日</b><span>まで</span>';
+    else pill = '<span>あと</span><b>' + d + '</b><span>日</span>';
+    var open = !!openIds[it.id];
+    var url = safeUrl(it.url);
+    var html =
+      '<div class="item lv-' + lv + '" data-id="' + it.id + '">' +
+        '<div class="item-head" data-act="toggle" role="button" tabindex="0" aria-expanded="' + open + '">' +
+          '<div class="item-main">' +
+            '<div class="item-name">' + esc(it.name) + '</div>' +
+            '<div class="item-meta">締切 ' + jdate(it.deadline) + (it.amount > 0 ? '　上限 ' + man(it.amount) + '円' : '') + '</div>' +
+            '<div class="item-meta">' + esc(st.t) + '</div>' +
+          '</div>' +
+          '<div class="pill">' + pill + '</div>' +
+        '</div>' +
+        '<div class="prog"><span>準備</span><div class="bar"><i style="width:' + Math.round(r.done / r.all * 100) + '%"></i></div><span>' + r.done + '/' + r.all + '</span></div>';
+    if (open){
+      html += '<div class="detail"><h4>いまの状態（タップで変更）</h4><div class="chips">';
+      STATUS.forEach(function(x){
+        html += '<button class="chip' + (x.k === it.status ? ' on' : '') + '" type="button" data-act="status" data-v="' + x.k + '">' + x.t + '</button>';
+      });
+      html += '</div><h4>やることチェック（タップで完了）</h4><ul class="checks">';
+      CHECKS.forEach(function(c, i){
+        var on = it.checks && it.checks[i];
+        html += '<li><button class="check' + (on ? ' on' : '') + '" type="button" data-act="check" data-i="' + i + '" aria-pressed="' + !!on + '"><span class="box">' + (on ? '✓' : '') + '</span><span class="t">' + c + '</span></button></li>';
+      });
+      html += '</ul>';
+      if (url || it.memo){
+        html += '<div class="memo">' + (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">公式ページを開く</a>' + (it.memo ? '\n' : '') : '') + esc(it.memo || '') + '</div>';
+      }
+      html += '<div class="actions">' +
+        '<button class="act" type="button" data-act="edit">なおす</button>' +
+        '<button class="act" type="button" data-act="ics">カレンダーに入れる</button>' +
+        '<button class="act del' + (armedDel === it.id ? ' arm' : '') + '" type="button" data-act="del">' + (armedDel === it.id ? 'もう一度で消す' : '消す') + '</button>' +
+      '</div></div>';
+    }
+    return html + '</div>';
+  }
+
+  function render(animate){
+    var today = todayStr(), s = splitItems(items, today);
+    renderHero(today, animate);
+    $("activeCnt").textContent = s.active.length + "件";
+    $("doneCnt").textContent = s.done.length + "件 " + (doneOpen ? "▲" : "▼");
+    $("activeList").innerHTML = s.active.length
+      ? s.active.map(function(it){ return itemHTML(it, today); }).join("")
+      : '<div class="card none">進行中の補助金はありません</div>';
+    $("doneList").innerHTML = s.done.length
+      ? s.done.map(function(it){ return itemHTML(it, today); }).join("")
+      : '<div class="none">まだありません</div>';
+    $("doneList").classList.toggle("hidden", !doneOpen);
+    $("doneFold").setAttribute("aria-expanded", doneOpen);
+  }
+
+  function find(id){ for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i]; return null; }
+
+  function onListClick(e){
+    var btn = e.target.closest("[data-act]");
+    if (!btn) return;
+    var card = btn.closest(".item"), it = card && find(card.getAttribute("data-id"));
+    if (!it) return;
+    var act = btn.getAttribute("data-act");
+    if (act !== "del") armedDel = null;
+    if (act === "toggle"){ openIds[it.id] = !openIds[it.id]; render(false); }
+    else if (act === "status"){ it.status = btn.getAttribute("data-v"); save(); render(true); toast("「" + btn.textContent + "」にしました"); }
+    else if (act === "check"){
+      var i = +btn.getAttribute("data-i");
+      it.checks = it.checks || [];
+      it.checks[i] = !it.checks[i];
+      if (i === CHECKS.length - 1 && it.checks[i] && isOpen(it)){ it.status = "applied"; toast("おつかれさま！「申請した」にしました"); }
+      save(); render(false);
+    }
+    else if (act === "edit"){ openSheet(it); }
+    else if (act === "ics"){ download(makeICS(it, nowStamp()), "締切_" + fileSafe(it.name) + ".ics", "text/calendar"); toast("カレンダー用のファイルを保存しました"); }
+    else if (act === "del"){
+      if (armedDel === it.id){
+        items = items.filter(function(x){ return x.id !== it.id; });
+        armedDel = null; save(); render(true); toast("消しました");
+      } else { armedDel = it.id; render(false); }
+    }
+  }
+  function nowStamp(){ return new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, ""); }
+  function fileSafe(s){ return String(s).replace(/[\\\/:*?"<>|\s]/g, "_").slice(0, 30); }
+  function download(text, name, type){
+    var blob = new Blob([text], {type: type + ";charset=utf-8"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }
+
+  /* ---- 追加・編集シート ---- */
+  function renderStatusChips(){
+    $("statusChips").innerHTML = STATUS.map(function(x){
+      return '<button class="chip' + (x.k === formStatus ? ' on' : '') + '" type="button" data-v="' + x.k + '">' + x.t + '</button>';
+    }).join("");
+  }
+  function openSheet(it){
+    editingId = it ? it.id : null;
+    $("sheetTitle").textContent = it ? "補助金をなおす" : "補助金を追加";
+    $("iName").value = it ? it.name : "";
+    $("iDate").value = it ? it.deadline : "";
+    $("iAmount").value = it && it.amount > 0 ? String(it.amount) : "";
+    $("iUrl").value = it ? (it.url || "") : "";
+    $("iMemo").value = it ? (it.memo || "") : "";
+    formStatus = it ? it.status : "want";
+    renderStatusChips();
+    $("f-name").classList.remove("bad"); $("f-date").classList.remove("bad");
+    $("overlay").classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    if (!it) setTimeout(function(){ $("iName").focus(); }, 50);
+  }
+  function closeSheet(){ $("overlay").classList.add("hidden"); document.body.style.overflow = ""; }
+  function saveSheet(){
+    var name = $("iName").value.trim(), date = $("iDate").value;
+    var badN = !name, badD = isNaN(ymdToUTC(date));
+    $("f-name").classList.toggle("bad", badN); $("f-date").classList.toggle("bad", badD);
+    if (badN || badD) return;
+    var amt = toNum($("iAmount").value);
+    var data = {name: name, deadline: date, amount: amt > 0 ? Math.round(amt) : 0,
+      url: $("iUrl").value.trim(), memo: $("iMemo").value.trim(), status: formStatus};
+    if (editingId){
+      var it = find(editingId);
+      for (var k in data) it[k] = data[k];
+      openIds[it.id] = true;
+      toast("なおしました");
+    } else {
+      data.id = newId(); data.checks = []; data.created = todayStr();
+      items.push(data);
+      toast("追加しました");
+    }
+    save(); closeSheet(); render(true);
+    window.scrollTo({top: 0, behavior: reduce ? "auto" : "smooth"});
+  }
+
+  /* ---- 見本・バックアップ ---- */
+  function addDays(n){ var d = new Date(); d.setDate(d.getDate() + n); return todayStr(d); }
+  function addSample(){
+    var s = [
+      {name:"（見本）〇〇市 小さなお店の改装補助金", deadline:addDays(5), amount:500000, status:"prep", memo:"見積書は2社分いる。商工会で相談できる", checks:[true,true,true,false,false,false,false]},
+      {name:"（見本）△△県 ホームページ作成の補助金", deadline:addDays(21), amount:300000, status:"want", memo:"", checks:[true]},
+      {name:"（見本）国の販路を広げる補助金", deadline:addDays(60), amount:2000000, status:"want", memo:"事業計画書がいる", checks:[]},
+      {name:"（見本）□□区 創業の助成金", deadline:addDays(-10), amount:1000000, status:"applied", memo:"", checks:[true,true,true,true,true,true,true]}
+    ];
+    s.forEach(function(x){ x.id = newId(); x.url = ""; x.created = todayStr(); items.push(x); });
+    save(); render(true); window.scrollTo({top:0, behavior: reduce ? "auto" : "smooth"});
+    toast("見本を4件入れました（あとで消せます）");
+  }
+
+  $("addBtn").addEventListener("click", function(){ openSheet(null); });
+  $("closeBtn").addEventListener("click", closeSheet);
+  $("overlay").addEventListener("click", function(e){ if (e.target === $("overlay")) closeSheet(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !$("overlay").classList.contains("hidden")) closeSheet(); });
+  $("saveBtn").addEventListener("click", saveSheet);
+  $("statusChips").addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if (!b) return;
+    formStatus = b.getAttribute("data-v"); renderStatusChips();
+  });
+  $("amountQuick").addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if (!b) return;
+    $("iAmount").value = b.getAttribute("data-v");
+  });
+  $("iAmount").addEventListener("blur", function(){ var n = toNum(this.value); if (!isNaN(n)) this.value = String(Math.round(n)); });
+  $("iName").addEventListener("input", function(){ $("f-name").classList.remove("bad"); });
+  $("iDate").addEventListener("change", function(){ $("f-date").classList.remove("bad"); });
+
+  $("activeList").addEventListener("click", onListClick);
+  $("doneList").addEventListener("click", onListClick);
+  [$("activeList"), $("doneList")].forEach(function(el){
+    el.addEventListener("keydown", function(e){
+      if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("item-head")){ e.preventDefault(); onListClick(e); }
+    });
+  });
+  $("doneFold").addEventListener("click", function(){ doneOpen = !doneOpen; render(false); });
+
+  $("sampleBtn").addEventListener("click", addSample);
+  var clearArm = false;
+  $("clearAllBtn").addEventListener("click", function(){
+    if (!clearArm){ clearArm = true; this.textContent = "もう一度でぜんぶ消す"; var b = this; setTimeout(function(){ clearArm = false; b.textContent = "ぜんぶ消す"; }, 3000); return; }
+    items = []; save(); render(true); clearArm = false; this.textContent = "ぜんぶ消す"; toast("ぜんぶ消しました");
+  });
+  $("exportBtn").addEventListener("click", function(){
+    download(JSON.stringify({app:"hojokin-shimekiri-note", v:1, saved:todayStr(), items:items}, null, 1), "補助金締切ノート_バックアップ_" + todayStr() + ".json", "application/json");
+    toast("バックアップを保存しました");
+  });
+  $("importBtn").addEventListener("click", function(){ $("importFile").value = ""; $("importFile").click(); });
+  $("importFile").addEventListener("change", function(){
+    var f = this.files && this.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try{
+        var d = JSON.parse(r.result), list = Array.isArray(d) ? d : d.items;
+        if (!Array.isArray(list)) throw 0;
+        list = list.filter(valid);
+        var have = {}; items.forEach(function(x){ have[x.id] = true; });
+        var added = 0;
+        list.forEach(function(x){ if (!x.id || !have[x.id]){ x.id = x.id || newId(); items.push(x); added++; } });
+        save(); render(true); toast(added + "件 戻しました");
+      }catch(e){ toast("このファイルは読みこめませんでした"); }
+    };
+    r.readAsText(f);
+  });
+
+  load(); render(true);
+  // 日付が変わっても正しい日数になるように、表示し直す
+  document.addEventListener("visibilitychange", function(){ if (!document.hidden) render(false); });
+})();
+</script>
+<!--PWA_HINT-->
+<div id="pwaHint" class="pwa-hint" hidden>
+  <span>ホーム画面に追加すると、アプリのように使えます</span>
+  <button type="button" id="pwaHintClose" aria-label="閉じる">×</button>
+</div>
+<style>
+.pwa-hint{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;
+  display:flex;align-items:center;gap:10px;background:rgba(40,46,64,.92);color:#fff;font-size:13px;
+  padding:12px 14px;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.25);max-width:520px;margin:0 auto}
+.pwa-hint span{flex:1}
+.pwa-hint button{border:none;background:rgba(255,255,255,.18);color:#fff;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer}
+.pwa-hint[hidden]{display:none}
+</style>
+<script>
+(function(){
+  // ネット上（https）で開いたときだけ、オフライン用の仕組みを登録する
+  if ("serviceWorker" in navigator && window.isSecureContext && location.protocol !== "file:") {
+    window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+  }
+  // スマホのブラウザで開いていて、まだホーム画面から開いていない人にだけ案内を出す
+  try{
+    var standalone = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+    var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    var KEY = "pwaHintClosed";
+    if (mobile && !standalone && location.protocol !== "file:" && !localStorage.getItem(KEY)) {
+      var h = document.getElementById("pwaHint");
+      h.hidden = false;
+      document.getElementById("pwaHintClose").addEventListener("click", function(){
+        h.hidden = true; try{ localStorage.setItem(KEY, "1"); }catch(e){}
+      });
+    }
+  }catch(e){}
+})();
+</script>
+<!--PWA_HINT_END-->
+</body>
+</html>
