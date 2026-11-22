@@ -136,8 +136,16 @@
     "text": "#ad Checking a few pages for SEO doesn't need proxies. Pulling thousands of pages from one site does: you hit the per-IP limit fast. Slow down first. If that's not enough, Webshare has a free plan to test proxies: https://www.webshare.io/?referral_code=k3rkgjck5jy4\n\n#WebScraping"
   },
   {
+    "date": "2026-12-14",
+    "text": "New guide: checking Core Web Vitals for many pages at once. LCP, INP and CLS thresholds, why lab tests show TBT instead of INP, and a simple routine: one URL per template, mobile first, fix the worst template. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/core-web-vitals-bulk-check.html\n\n#SEO #WebPerf"
+  },
+  {
     "date": "2026-12-17",
     "text": "#ad 3 signs your crawler is blocked: 429 errors after a few hundred requests, CAPTCHAs, or pages that load in your browser but come back empty from your server. Add delays first, then try a proxy pool. Free plan to test: https://www.webshare.io/?referral_code=k3rkgjck5jy4\n\n#WebScraping"
+  },
+  {
+    "date": "2026-12-21",
+    "text": "New guide: podcast transcripts for SEO. Search engines and AI assistants can't use audio alone. Give each episode its own page with a summary, headings and the full transcript. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/podcast-transcripts-seo.html\n\n#SEO #Podcast"
   },
   {
     "date": "2026-12-24",

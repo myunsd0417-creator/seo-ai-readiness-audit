@@ -1,0 +1,6 @@
+[
+  { "date": "2026-11-30", "file": "sitemap-check.html", "title": "Is your XML sitemap actually working? A 5-minute check", "summary": "Check that your sitemap loads, is listed in robots.txt and only contains working, indexable pages." },
+  { "date": "2026-12-07", "file": "llms-txt-guide.html", "title": "What is llms.txt? A plain guide to adding one to your site", "summary": "What llms.txt can and cannot do, what to put in it, and how to keep it live after a redesign." },
+  { "date": "2026-12-14", "file": "core-web-vitals-bulk-check.html", "title": "How to check Core Web Vitals for many pages at once", "summary": "LCP, INP and CLS thresholds, field vs. lab data, and a simple routine for testing every template." },
+  { "date": "2026-12-21", "file": "podcast-transcripts-seo.html", "title": "Podcast transcripts for SEO: turn episodes into searchable pages", "summary": "Why audio alone is invisible to search, and how to publish transcripts and show notes people can find." }
+]

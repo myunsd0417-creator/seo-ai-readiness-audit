@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Is Your XML Sitemap Actually Working? A 5-Minute Check</title>
+<meta name="description" content="How to check that your XML sitemap loads, lists the right pages, is referenced in robots.txt and does not include redirects, 404s or noindex pages.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Is your XML sitemap actually working? A 5-minute check</h1>
+
+<p>A sitemap is a list of the pages you want search engines to find. It does not force anything into Google, but it helps crawlers discover new and updated pages, especially on large sites or sites with few internal links.</p>
+
+<p>Sitemaps break more often than people expect: a plugin is removed, a migration changes the URL, or the file starts listing pages that no longer exist. Nothing on the website looks wrong, so nobody notices.</p>
+
+<h2>The 5-minute check</h2>
+<ol>
+<li><strong>Open it.</strong> Try <code>https://yourdomain.com/sitemap.xml</code>. Many CMSs use another name, such as <code>sitemap_index.xml</code> or <code>wp-sitemap.xml</code>. It should load as XML, not as an error page or your home page.</li>
+<li><strong>Check robots.txt.</strong> Open <code>https://yourdomain.com/robots.txt</code> and look for a line like <code>Sitemap: https://yourdomain.com/sitemap.xml</code>. This is how crawlers find the sitemap without you submitting it anywhere.</li>
+<li><strong>Spot-check the URLs.</strong> Open five URLs from the sitemap. Each should load normally, with no redirect, no 404 and no <code>noindex</code>.</li>
+<li><strong>Check the count.</strong> Does the number of URLs roughly match the number of pages you want in search? Far fewer usually means sections are missing. Far more usually means tag pages, filters or test pages slipped in.</li>
+<li><strong>Look at Search Console.</strong> If you use Google Search Console, open <strong>Sitemaps</strong> and check the status and the last read date.</li>
+</ol>
+
+<h2>Common problems and fixes</h2>
+<table>
+<tr><th>Problem</th><th>Fix</th></tr>
+<tr><td>The sitemap URL returns 404</td><td>Turn the sitemap feature back on in your CMS or SEO plugin, then update robots.txt with the correct URL.</td></tr>
+<tr><td>It lists redirected or deleted pages</td><td>List only final URLs that return 200. Regenerate the sitemap after a migration.</td></tr>
+<tr><td>It lists noindex pages</td><td>Remove them. A sitemap should only contain pages you want indexed.</td></tr>
+<tr><td>It uses the wrong domain (http, or without www)</td><td>Use the same version of the domain as your canonical URLs.</td></tr>
+<tr><td><code>lastmod</code> is today's date on every page</td><td>Only change <code>lastmod</code> when a page really changes. Google uses it when it is consistently accurate.</td></tr>
+</table>
+
+<div class="note">One sitemap file can hold up to 50,000 URLs (and 50 MB uncompressed). Larger sites split it into several files and list them in a sitemap index.</div>
+
+<h2>Get an alert when the sitemap disappears</h2>
+<p>A one-time check only covers today. I built <strong>SEO &amp; AI Search Monitor</strong> on the Apify Store to watch this every week. It checks that the sitemap and robots.txt are still reachable, finds pages that turned <code>noindex</code> or started returning errors, and alerts you only when something got worse. You pay per page checked, with no API key. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/seo-ai-readiness-audit">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>The sitemap should load as XML and be listed in robots.txt.</li>
+<li>It should contain only working, indexable, canonical URLs.</li>
+<li>Keep <code>lastmod</code> honest.</li>
+<li>Re-check after every migration, redesign or plugin change.</li>
+</ul>
+
+<p>Related guides: <a href="noindex-check.html">Did your pages turn noindex?</a> · <a href="ai-crawler-robots-txt-check.html">Is your robots.txt blocking ChatGPT, Perplexity or Claude?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a> · <a href="https://bsky.app/profile/mirumiru77.bsky.social">Follow on Bluesky</a></footer>
+</body>
+</html>

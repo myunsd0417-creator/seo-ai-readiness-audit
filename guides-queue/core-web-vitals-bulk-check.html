@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Check Core Web Vitals for Many Pages at Once</title>
+<meta name="description" content="What LCP, INP and CLS mean, the good and poor thresholds, the difference between field and lab data, and how to test dozens of pages at once without an API key.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>How to check Core Web Vitals for many pages at once</h1>
+
+<p>PageSpeed Insights is great for one page. But slow pages are rarely the home page. They are the product page with a huge image, the blog template with a heavy embed, or the landing page someone built last month. To find them, you need to test many pages, not one.</p>
+
+<h2>The three Core Web Vitals</h2>
+<table>
+<tr><th>Metric</th><th>What it measures</th><th>Good</th><th>Poor</th></tr>
+<tr><td>LCP (Largest Contentful Paint)</td><td>How fast the main content appears</td><td>2.5 s or less</td><td>over 4 s</td></tr>
+<tr><td>INP (Interaction to Next Paint)</td><td>How fast the page reacts to taps and clicks</td><td>200 ms or less</td><td>over 500 ms</td></tr>
+<tr><td>CLS (Cumulative Layout Shift)</td><td>How much the layout jumps while loading</td><td>0.1 or less</td><td>over 0.25</td></tr>
+</table>
+
+<h2>Field data vs. lab data</h2>
+<ul>
+<li><strong>Field data</strong> comes from real Chrome users (the Chrome UX Report). It is what Google uses, but it needs enough traffic, so many pages have none.</li>
+<li><strong>Lab data</strong> comes from running Lighthouse in a controlled test. It works on any page, including new and low-traffic ones, and it tells you what to fix.</li>
+</ul>
+<p>Lab tests cannot measure INP because nobody is tapping the page. Lighthouse reports <strong>Total Blocking Time (TBT)</strong> instead, which tracks the same problem: long JavaScript tasks that make the page slow to respond.</p>
+
+<h2>A simple bulk-testing routine</h2>
+<ol>
+<li>Pick one URL per template: home, category, product or service page, blog post, landing page.</li>
+<li>Add your top 10 to 20 pages by traffic.</li>
+<li>Test on <strong>mobile</strong> first. Most problems show up there.</li>
+<li>Sort by LCP and fix the worst template first. One template fix often speeds up hundreds of pages.</li>
+<li>Re-test after each deploy that touches images, fonts, scripts or layout.</li>
+</ol>
+
+<h2>The usual fixes</h2>
+<ul>
+<li><strong>Slow LCP:</strong> compress and resize the hero image, serve it in WebP or AVIF, and don't lazy-load the first image on the page.</li>
+<li><strong>High TBT / poor INP:</strong> remove unused scripts, delay chat widgets and trackers, and split large JavaScript bundles.</li>
+<li><strong>High CLS:</strong> set width and height on images and embeds, and reserve space for ads and banners.</li>
+</ul>
+
+<h2>Test a whole list of URLs without an API key</h2>
+<p>I built <strong>Bulk PageSpeed &amp; Core Web Vitals Checker</strong> on the Apify Store. Paste a list of URLs and it runs Google Lighthouse, the same engine behind PageSpeed Insights, on each one. You get performance, SEO and accessibility scores, LCP, CLS, TBT, FCP and Speed Index with good / needs-improvement / poor ratings, and the top fixes ranked by time saved. Mobile, desktop or both, with an HTML report. You pay per page tested. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/page-speed-core-web-vitals">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>Test one page per template plus your top pages, not just the home page.</li>
+<li>Use lab data to find and fix problems. Use field data to confirm the result.</li>
+<li>TBT in the lab points to the same issues as INP in the field.</li>
+<li>Fix the worst template first.</li>
+</ul>
+
+<p>Related guides: <a href="sitemap-check.html">Is your XML sitemap actually working?</a> · <a href="noindex-check.html">Did your pages turn noindex?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a> · <a href="https://bsky.app/profile/mirumiru77.bsky.social">Follow on Bluesky</a></footer>
+</body>
+</html>

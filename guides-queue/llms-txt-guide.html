@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Is llms.txt? A Plain Guide to Adding One to Your Site</title>
+<meta name="description" content="What llms.txt is, what it can and cannot do, what to put in it, and how to publish and keep it at the root of your website.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>What is llms.txt? A plain guide to adding one to your site</h1>
+
+<p><code>llms.txt</code> is a short Markdown file at the root of a website (<code>https://yourdomain.com/llms.txt</code>). It gives AI tools a clean summary of the site and links to the pages that matter most, without menus, ads or scripts.</p>
+
+<p>It is a proposed convention, not an official standard. Some AI tools and developer platforms read it, and many sites now publish one. No search engine has said it uses <code>llms.txt</code> as a ranking signal, so treat it as a low-cost extra, not a replacement for good pages and an open robots.txt.</p>
+
+<h2>What goes in it</h2>
+<p>The usual structure is simple:</p>
+<pre># Example Studio
+
+&gt; Web design studio in Lisbon. We build fast websites for restaurants and small hotels.
+
+## Services
+- [Website design](https://example.com/design): What we build and how long it takes
+- [Pricing](https://example.com/pricing): Packages and what is included
+
+## Help
+- [Contact](https://example.com/contact): Email and opening hours</pre>
+<ul>
+<li>An H1 with the name of the site or company.</li>
+<li>A one- or two-sentence summary in a quote block.</li>
+<li>Sections with links to your most useful pages, each with a short description.</li>
+</ul>
+
+<h2>How to add one</h2>
+<ol>
+<li>Write the file in a text editor and save it as <code>llms.txt</code>.</li>
+<li>Upload it to the root of your site, next to robots.txt. In WordPress you can use your host's file manager or an SEO plugin that supports it.</li>
+<li>Open <code>https://yourdomain.com/llms.txt</code> in a browser and check that it shows plain text.</li>
+<li>Update it when you add or remove important pages.</li>
+</ol>
+
+<div class="note">llms.txt does not control access. If robots.txt blocks AI search crawlers such as OAI-SearchBot or PerplexityBot, an llms.txt file will not change that. Check robots.txt first.</div>
+
+<h2>Common mistakes</h2>
+<ul>
+<li>Putting it in a subfolder. It belongs at the root.</li>
+<li>Listing every page. Keep it to the pages a new visitor would need.</li>
+<li>Linking to pages that redirect, return 404 or are <code>noindex</code>.</li>
+<li>Losing it in a redesign or a move to a new host, which happens often.</li>
+</ul>
+
+<h2>Generate one from your own pages</h2>
+<p>I built <strong>SEO &amp; AI Search Monitor</strong> on the Apify Store. Each run creates a ready-to-publish <code>llms.txt</code> from your site's own pages, checks whether AI crawlers are allowed in robots.txt, and, when scheduled, tells you if your <code>llms.txt</code> disappears later. No API key is needed, and you pay per page checked. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/seo-ai-readiness-audit">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li><code>llms.txt</code> is a Markdown summary of your site for AI tools, placed at the root.</li>
+<li>It is optional and cheap to add. It does not replace robots.txt or good content.</li>
+<li>Keep it short, keep the links working and check it after redesigns.</li>
+</ul>
+
+<p>Related guides: <a href="ai-crawler-robots-txt-check.html">Is your robots.txt blocking ChatGPT, Perplexity or Claude?</a> · <a href="noindex-check.html">Did your pages turn noindex?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a> · <a href="https://bsky.app/profile/mirumiru77.bsky.social">Follow on Bluesky</a></footer>
+</body>
+</html>
