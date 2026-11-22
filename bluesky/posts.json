@@ -130,5 +130,17 @@
   {
     "date": "2026-12-09",
     "text": "Year-end checklist for site owners: robots.txt still allows AI search bots, sitemap reachable, llms.txt live, no accidental noindex, no new 404s. Then automate the checklist."
+  },
+  {
+    "date": "2026-12-10",
+    "text": "Checking a few pages for SEO doesn't need proxies. Pulling thousands of pages from one site does: you hit the per-IP limit fast. Slow down first. If that's not enough, Webshare has a free plan to test proxies (affiliate link): https://www.webshare.io/?referral_code=k3rkgjck5jy4"
+  },
+  {
+    "date": "2026-12-17",
+    "text": "3 signs your crawler is blocked: 429 errors after a few hundred requests, CAPTCHAs, or pages that load in your browser but come back empty from your server. Add delays first, then try a proxy pool. Free plan to test (affiliate link): https://www.webshare.io/?referral_code=k3rkgjck5jy4"
+  },
+  {
+    "date": "2026-12-24",
+    "text": "New guide: getting blocked while scraping? What 403, 429 and CAPTCHAs mean, what to try first for free, and when proxies are actually worth it. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/scraping-blocked-proxies.html"
   }
 ]

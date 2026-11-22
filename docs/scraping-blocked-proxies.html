@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting Blocked While Scraping? When You Need Proxies (and When You Don't)</title>
+<meta name="description" content="Why sites return 403, 429 or CAPTCHAs to scrapers and crawlers, what to try before buying proxies, and how to tell when a proxy pool is actually needed.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · This page contains an affiliate link (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Getting blocked while scraping? When you need proxies (and when you don't)</h1>
+
+<p>Checking a few pages of your own site, or of a client's site, almost never needs proxies. Collecting thousands of pages from a site you don't control is different. Many sites limit how many requests one IP address can make, and once you go over that limit, you get blocked.</p>
+
+<p>Proxies are not the first fix. Most blocks go away when you crawl more politely. This guide shows what to try first and how to tell when a proxy pool is really needed.</p>
+
+<h2>Signs that you are being blocked</h2>
+<table>
+<tr><th>What you see</th><th>What it usually means</th></tr>
+<tr><td><code>429 Too Many Requests</code></td><td>You are sending requests too fast. The site is rate-limiting your IP address.</td></tr>
+<tr><td><code>403 Forbidden</code> after a while</td><td>Your IP address or your request pattern was flagged.</td></tr>
+<tr><td>A CAPTCHA or "verify you are human" page</td><td>Bot protection is checking your traffic.</td></tr>
+<tr><td>Pages that work in your browser but come back empty from your server</td><td>The site treats data-center IP addresses differently from home connections.</td></tr>
+</table>
+
+<h2>Try these first (free)</h2>
+<ol>
+<li><strong>Slow down.</strong> Add a delay between requests and lower the number of parallel requests. This alone fixes most <code>429</code> errors.</li>
+<li><strong>Respect <code>Retry-After</code>.</strong> When a <code>429</code> response includes this header, wait that long before trying again.</li>
+<li><strong>Use a normal User-Agent.</strong> Some sites block requests that have an empty or obviously automated User-Agent.</li>
+<li><strong>Only fetch what you need.</strong> Use the sitemap to find pages instead of following every link, and skip images and files you don't use.</li>
+<li><strong>Check the rules.</strong> Read the site's robots.txt and terms. If a site does not allow automated access, proxies don't change that.</li>
+</ol>
+
+<div class="note">Proxies help when a site limits requests per IP address. They don't make it acceptable to collect data a site does not allow you to collect.</div>
+
+<h2>When proxies make sense</h2>
+<ul>
+<li>You need many pages from the same site, and even a slow crawl hits the per-IP limit.</li>
+<li>You need to see a site the way it looks from another country (prices, search results, language versions).</li>
+<li>Your server's IP address is blocked, but the same pages work from a normal connection.</li>
+</ul>
+<p>A proxy pool sends your requests through many different IP addresses, so no single address goes over the limit. There are two common kinds:</p>
+<table>
+<tr><th>Type</th><th>Good for</th><th>Trade-off</th></tr>
+<tr><td>Data-center proxies</td><td>Most sites, high volume</td><td>Lower cost, but easier for strict sites to detect</td></tr>
+<tr><td>Residential proxies</td><td>Strict sites, local results</td><td>Higher cost per request</td></tr>
+</table>
+<p>Start with data-center proxies and switch only the sites that still block you.</p>
+
+<h2>A low-cost way to test</h2>
+<p>If you want to see whether proxies solve your problem before paying much, <strong>Webshare</strong> has a free plan and low-cost data-center and residential options. Test with your real target site, with the delays above still in place.</p>
+<p><a class="cta" href="https://www.webshare.io/?referral_code=k3rkgjck5jy4" rel="sponsored noopener">Try Webshare (affiliate link)</a></p>
+<p class="meta">If you sign up through this link, this site may earn a commission at no extra cost to you. Plans and prices can change, so check the official page.</p>
+
+<h2>Summary</h2>
+<ul>
+<li><code>429</code>, <code>403</code>, CAPTCHAs and empty pages are the usual signs of a block.</li>
+<li>Slow down, respect <code>Retry-After</code> and fetch less before you buy proxies.</li>
+<li>Use proxies when the limit is per IP address and a polite crawl still hits it.</li>
+<li>Start with data-center proxies. Use residential proxies only where you need them.</li>
+</ul>
+
+<p>Related guides: <a href="noindex-check.html">Did your pages turn noindex?</a> · <a href="ai-crawler-robots-txt-check.html">Is your robots.txt blocking ChatGPT, Perplexity or Claude?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a></footer>
+</body>
+</html>
