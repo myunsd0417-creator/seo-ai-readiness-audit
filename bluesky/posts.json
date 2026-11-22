@@ -65,82 +65,82 @@
   },
   {
     "date": "2026-11-23",
-    "text": "Retainer idea for freelancers: \"weekly SEO & AI search monitoring\" for a small monthly fee. The checks run automatically. You only step in when an alert arrives."
+    "text": "Retainer idea for freelancers: \"weekly SEO & AI search monitoring\" for a small monthly fee. The checks run automatically. You only step in when an alert arrives.\n\n#SEO #GEO"
   },
   {
     "date": "2026-11-24",
-    "text": "Japanese clients? Reports and alerts can be generated in Japanese as well as English, so you can forward them as they are.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Japanese clients? Reports and alerts can be generated in Japanese as well as English, so you can forward them as they are.\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO"
   },
   {
     "date": "2026-11-25",
-    "text": "A page score that drops from 95 to 60 overnight usually means a template changed: title, H1, canonical or structured data gone across many pages at once. Catch it early."
+    "text": "A page score that drops from 95 to 60 overnight usually means a template changed: title, H1, canonical or structured data gone across many pages at once. Catch it early.\n\n#SEO"
   },
   {
     "date": "2026-11-26",
-    "text": "Pricing is per audited page, no subscription. Example: 3 sites x 50 pages, checked weekly, is about 600 pages a month. Set a max cost per run and it never goes over:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Pricing is per audited page, no subscription. Example: 3 sites x 50 pages, checked weekly, is about 600 pages a month. Set a max cost per run and it never goes over:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO"
   },
   {
     "date": "2026-11-27",
-    "text": "Broken internal links pile up after URL changes. A one-time cleanup helps. A weekly check that lists only the new ones is what keeps the site clean."
+    "text": "Broken internal links pile up after URL changes. A one-time cleanup helps. A weekly check that lists only the new ones is what keeps the site clean.\n\n#SEO"
   },
   {
     "date": "2026-11-28",
-    "text": "Developers: add the monitor after each deploy or on a daily schedule. The CHANGES output is plain JSON (regressed / improved / unchanged), easy to wire into CI or dashboards:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Developers: add the monitor after each deploy or on a daily schedule. The CHANGES output is plain JSON (regressed / improved / unchanged), easy to wire into CI or dashboards:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO"
   },
   {
     "date": "2026-11-29",
-    "text": "\"Why did our traffic from ChatGPT drop?\" Start with robots.txt. This 2-minute check shows which line blocks AI search and which only blocks training:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/ai-crawler-robots-txt-check.html"
+    "text": "\"Why did our traffic from ChatGPT drop?\" Start with robots.txt. This 2-minute check shows which line blocks AI search and which only blocks training:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/ai-crawler-robots-txt-check.html\n\n#SEO #GEO"
   },
   {
     "date": "2026-11-30",
-    "text": "First run saves a baseline. From the second run on, you see what changed: scores up or down, new issues per page, fixed links, new pages. No setup beyond a schedule:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "First run saves a baseline. From the second run on, you see what changed: scores up or down, new issues per page, fixed links, new pages. No setup beyond a schedule:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO"
   },
   {
     "date": "2026-12-01",
-    "text": "Good monitoring is quiet. If every run sends a message, people stop reading them. Alert only on regressions, and keep the full report one click away."
+    "text": "Good monitoring is quiet. If every run sends a message, people stop reading them. Alert only on regressions, and keep the full report one click away.\n\n#SEO"
   },
   {
     "date": "2026-12-02",
-    "text": "End-of-year idea for agencies: offer existing clients \"always-on SEO & AI search monitoring\" for 2027. Same tools, new recurring service:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "End-of-year idea for agencies: offer existing clients \"always-on SEO & AI search monitoring\" for 2027. Same tools, new recurring service:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO #GEO"
   },
   {
     "date": "2026-12-03",
-    "text": "Noindex hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. The page still opens fine, so nobody notices. 2-minute check for both:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/noindex-check.html"
+    "text": "Noindex hides in two places: the meta robots tag and the X-Robots-Tag HTTP header. The page still opens fine, so nobody notices. 2-minute check for both:\nhttps://myunsd0417-creator.github.io/seo-ai-readiness-audit/noindex-check.html\n\n#SEO"
   },
   {
     "date": "2026-12-04",
-    "text": "Building an AI agent that manages websites? The monitor works as a tool through the Apify MCP server, so an agent can check sites on a schedule and react to regressions:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Building an AI agent that manages websites? The monitor works as a tool through the Apify MCP server, so an agent can check sites on a schedule and react to regressions:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO #GEO"
   },
   {
     "date": "2026-12-05",
-    "text": "Structured data often breaks silently when a theme updates. Rich results vanish, AI answers cite you less, and nothing looks wrong on the page itself."
+    "text": "Structured data often breaks silently when a theme updates. Rich results vanish, AI answers cite you less, and nothing looks wrong on the page itself.\n\n#SEO #GEO"
   },
   {
     "date": "2026-12-06",
-    "text": "Simple routine: schedule a weekly check of every site you manage, send alerts to one Slack channel, fix what turns red. Fifteen minutes a week, no surprises:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Simple routine: schedule a weekly check of every site you manage, send alerts to one Slack channel, fix what turns red. Fifteen minutes a week, no surprises:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO"
   },
   {
     "date": "2026-12-07",
-    "text": "SEO isn't set-and-forget, but it can be set-and-watch. Check automatically, react quickly, and spend your time on the work that actually grows traffic."
+    "text": "SEO isn't set-and-forget, but it can be set-and-watch. Check automatically, react quickly, and spend your time on the work that actually grows traffic.\n\n#SEO"
   },
   {
     "date": "2026-12-08",
-    "text": "Try it on your own site first: run it once for a baseline, schedule it weekly, and see the first \"what changed\" report next week:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit"
+    "text": "Try it on your own site first: run it once for a baseline, schedule it weekly, and see the first \"what changed\" report next week:\nhttps://apify.com/mirumiru_miru17/seo-ai-readiness-audit\n\n#SEO"
   },
   {
     "date": "2026-12-09",
-    "text": "Year-end checklist for site owners: robots.txt still allows AI search bots, sitemap reachable, llms.txt live, no accidental noindex, no new 404s. Then automate the checklist."
+    "text": "Year-end checklist for site owners: robots.txt still allows AI search bots, sitemap reachable, llms.txt live, no accidental noindex, no new 404s. Then automate the checklist.\n\n#SEO #GEO"
   },
   {
     "date": "2026-12-10",
-    "text": "#ad Checking a few pages for SEO doesn't need proxies. Pulling thousands of pages from one site does: you hit the per-IP limit fast. Slow down first. If that's not enough, Webshare has a free plan to test proxies: https://www.webshare.io/?referral_code=k3rkgjck5jy4"
+    "text": "#ad Checking a few pages for SEO doesn't need proxies. Pulling thousands of pages from one site does: you hit the per-IP limit fast. Slow down first. If that's not enough, Webshare has a free plan to test proxies: https://www.webshare.io/?referral_code=k3rkgjck5jy4\n\n#WebScraping"
   },
   {
     "date": "2026-12-17",
-    "text": "#ad 3 signs your crawler is blocked: 429 errors after a few hundred requests, CAPTCHAs, or pages that load in your browser but come back empty from your server. Add delays first, then try a proxy pool. Free plan to test: https://www.webshare.io/?referral_code=k3rkgjck5jy4"
+    "text": "#ad 3 signs your crawler is blocked: 429 errors after a few hundred requests, CAPTCHAs, or pages that load in your browser but come back empty from your server. Add delays first, then try a proxy pool. Free plan to test: https://www.webshare.io/?referral_code=k3rkgjck5jy4\n\n#WebScraping"
   },
   {
     "date": "2026-12-24",
-    "text": "New guide: getting blocked while scraping? What 403, 429 and CAPTCHAs mean, what to try first for free, and when proxies are actually worth it. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/scraping-blocked-proxies.html"
+    "text": "New guide: getting blocked while scraping? What 403, 429 and CAPTCHAs mean, what to try first for free, and when proxies are actually worth it. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/scraping-blocked-proxies.html\n\n#WebScraping"
   }
 ]

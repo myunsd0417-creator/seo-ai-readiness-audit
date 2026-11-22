@@ -141,6 +141,8 @@ Pay per event: a small fixed price **per audited page**, nothing for platform us
 
 ---
 
+Daily tips on SEO and AI search: [follow on Bluesky](https://bsky.app/profile/mirumiru77.bsky.social).
+
 ## 日本語
 
 サイトの**SEO**と**AI検索（ChatGPT・Claude・Perplexity・Gemini）対応**を診断し、定期実行すると**前回との違いを自動で比較**して、悪くなったときだけ知らせます。

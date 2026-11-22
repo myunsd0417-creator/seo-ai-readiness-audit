@@ -33,6 +33,16 @@ try {
 }
 
 let pinnedPost = current.pinnedPost;
+// Re-pin when profile.json has new intro text (the old intro post stays on the timeline).
+if (pinnedPost) {
+  try {
+    const parts = pinnedPost.uri.replace('at://', '').split('/');
+    const r = await xrpc('GET', 'com.atproto.repo.getRecord', { ...auth, query: { repo: parts[0], collection: parts[1], rkey: parts[2] } });
+    if ((r.value && r.value.text) !== cfg.pinnedText) pinnedPost = undefined;
+  } catch (e) {
+    pinnedPost = undefined;
+  }
+}
 if (!pinnedPost) {
   const text = cfg.pinnedText;
   const enc = new TextEncoder();
@@ -47,7 +57,7 @@ if (!pinnedPost) {
   pinnedPost = { uri: post.uri, cid: post.cid };
   console.log('Created intro post:', post.uri);
 } else {
-  console.log('A post is already pinned; keeping it.');
+  console.log('Pinned post already matches profile.json; keeping it.');
 }
 
 const record = { ...current, $type: 'app.bsky.actor.profile', displayName: cfg.displayName, description: cfg.description, pinnedPost };
