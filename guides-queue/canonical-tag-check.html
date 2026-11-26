@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canonical Tags Explained: How to Check Yours in Two Minutes</title>
+<meta name="description" content="What a canonical tag does, the common mistakes (wrong domain, staging URLs, pointing everything to the home page), and how to check the canonical on any page.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Canonical tags explained: how to check yours in two minutes</h1>
+
+<p>Many websites show the same content at more than one URL: with and without <code>www</code>, with tracking parameters, in a print view, or under several categories. A canonical tag tells search engines which URL is the main one.</p>
+
+<pre>&lt;link rel="canonical" href="https://www.example.com/shoes/red-sneaker"&gt;</pre>
+
+<p>It is a strong hint, not a command. Google usually follows it, but may choose another URL if the signals disagree, for example when internal links and the sitemap point somewhere else.</p>
+
+<h2>When canonicals matter</h2>
+<ul>
+<li>Product pages that appear under several categories.</li>
+<li>URLs with parameters such as <code>?utm_source=</code>, sorting or filters.</li>
+<li>The same article published on two of your sites.</li>
+<li>http and https, or <code>www</code> and non-<code>www</code>, both still reachable.</li>
+</ul>
+
+<h2>Check any page in two minutes</h2>
+<ol>
+<li>Open the page and view the source. Search for <code>canonical</code>.</li>
+<li>Check that the URL is <strong>absolute</strong> (starts with <code>https://</code>) and uses the right domain.</li>
+<li>Check that it points to a page that loads normally: no redirect, no 404, no <code>noindex</code>.</li>
+<li>On most normal pages, the canonical should point to the page itself.</li>
+<li>In Google Search Console, the URL Inspection tool shows both your canonical and the one Google chose.</li>
+</ol>
+
+<h2>Common mistakes</h2>
+<table>
+<tr><th>Mistake</th><th>What happens</th></tr>
+<tr><td>Canonical points to the staging or old domain</td><td>Google may ignore the live page. Very common after a migration.</td></tr>
+<tr><td>Every page points to the home page</td><td>Usually a template bug. Google may ignore the tag or treat pages as duplicates.</td></tr>
+<tr><td>Canonical points to a redirected or noindex page</td><td>Conflicting signals. Google picks its own canonical.</td></tr>
+<tr><td>No canonical at all</td><td>Not an error by itself, but Google has to guess on sites with duplicate URLs.</td></tr>
+<tr><td>More than one canonical tag on a page</td><td>Google may ignore both. Often caused by a theme and a plugin both adding one.</td></tr>
+</table>
+
+<div class="note">Don't use a canonical tag to hide a page. If you don't want a page in search at all, use <code>noindex</code> instead.</div>
+
+<h2>Check every page, not just one</h2>
+<p>I built <strong>SEO &amp; AI Search Monitor</strong> on the Apify Store. It checks every page of one or many sites for common SEO problems, including a missing canonical link, missing or duplicate H1 tags, <code>noindex</code> and broken links, and gives each page a score. Scheduled weekly, it tells you only what got worse since the last run. You pay per page checked, with no API key. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/seo-ai-readiness-audit">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>A canonical tag names the main URL when content is reachable at several URLs.</li>
+<li>Use absolute URLs on the live domain, pointing to working, indexable pages.</li>
+<li>Re-check canonicals after every migration or theme change.</li>
+<li>Use <code>noindex</code>, not a canonical, to keep a page out of search.</li>
+</ul>
+
+<p>Related guides: <a href="site-migration-seo-checklist.html">Website migration SEO checklist</a> · <a href="noindex-check.html">Did your pages turn noindex?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a> · <a href="https://bsky.app/profile/mirumiru77.bsky.social">Follow on Bluesky</a></footer>
+</body>
+</html>

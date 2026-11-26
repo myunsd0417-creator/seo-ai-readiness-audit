@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Japanese OCR: Turn Scanned PDFs, Receipts and Images into Text</title>
+<meta name="description" content="Why OCR on Japanese documents often fails, how to get better results from scans and photos, and how to extract text from many images and PDFs at once.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Japanese OCR: turn scanned PDFs, receipts and images into text</h1>
+
+<p>Invoices from Japanese suppliers, scanned contracts, receipts and screenshots often arrive as images. Before you can search, translate or put them into a spreadsheet, you need the text. That is what OCR (optical character recognition) does.</p>
+
+<p>Japanese is harder for OCR than English: thousands of characters, vertical writing, no spaces between words and small print on receipts. Here is how to get usable results.</p>
+
+<h2>First: does the PDF already contain text?</h2>
+<p>Try selecting text in the PDF. If you can copy it, the file already has a text layer and you don't need OCR. Reading that text directly is faster and has no recognition errors. Only scanned pages, which are just pictures, need OCR.</p>
+
+<h2>Tips for better results</h2>
+<ul>
+<li><strong>Resolution:</strong> scan at 300 DPI. Lower resolution loses the small strokes that tell similar kanji apart.</li>
+<li><strong>Light and angle:</strong> photograph flat, straight on, in even light, with no shadows across the text.</li>
+<li><strong>Vertical text (縦書き):</strong> tell the OCR engine the text is vertical. Horizontal settings read vertical columns badly.</li>
+<li><strong>Mixed languages:</strong> choose Japanese plus English for documents that mix both, such as invoices with product codes.</li>
+<li><strong>Check numbers:</strong> amounts, dates and phone numbers matter most. Check them by hand.</li>
+</ul>
+
+<h2>Common OCR problems in Japanese</h2>
+<table>
+<tr><th>Problem</th><th>Why it happens</th></tr>
+<tr><td>Spaces between every character</td><td>Many engines add spaces as if Japanese were English. Remove them afterwards.</td></tr>
+<tr><td><code>15.000円</code> instead of <code>15,000円</code></td><td>Commas in small print are read as periods.</td></tr>
+<tr><td>Similar characters swapped (ー and 一, ロ and 口)</td><td>They look almost the same, especially at low resolution.</td></tr>
+<tr><td>Columns read in the wrong order</td><td>Vertical text was read with horizontal settings.</td></tr>
+</table>
+
+<h2>Extract text from many files at once</h2>
+<p>I built <strong>Japanese OCR: Image, PDF, Receipt &amp; Invoice to Text</strong> on the Apify Store. Paste links to images or PDFs and you get the full text, the text per page and a confidence score per page, so you know which pages need a human check. PDF pages that already contain text are read directly, and scanned pages are rendered at 300 DPI and OCR'd. It supports vertical Japanese, removes the extra spaces between Japanese characters and fixes amounts like <code>15.000円</code>. It also works for English, Chinese, Korean, German, French and Spanish. You pay per page, with no API key. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/image-pdf-ocr-japanese">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>Check for a text layer first. Only scanned pages need OCR.</li>
+<li>Scan at 300 DPI, straight and evenly lit.</li>
+<li>Set vertical text and mixed languages correctly.</li>
+<li>Always check amounts, dates and names by hand.</li>
+</ul>
+
+<p>Related guide: <a href="podcast-transcripts-seo.html">Podcast transcripts for SEO</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a> · <a href="https://bsky.app/profile/mirumiru77.bsky.social">Follow on Bluesky</a></footer>
+</body>
+</html>

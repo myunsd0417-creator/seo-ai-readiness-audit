@@ -150,5 +150,21 @@
   {
     "date": "2026-12-24",
     "text": "New guide: getting blocked while scraping? What 403, 429 and CAPTCHAs mean, what to try first for free, and when proxies are actually worth it. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/scraping-blocked-proxies.html\n\n#WebScraping"
+  },
+  {
+    "date": "2026-12-28",
+    "text": "New guide: a website migration SEO checklist. Map every old URL to a new one with a 301, remove staging noindex on launch day, check canonicals and the sitemap, and compare with a baseline for weeks. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/site-migration-seo-checklist.html\n\n#SEO"
+  },
+  {
+    "date": "2027-01-04",
+    "text": "New guide: canonical tags in two minutes. Absolute URL, live domain, pointing to a page that loads with no redirect and no noindex. And never point every page to the home page. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/canonical-tag-check.html\n\n#SEO"
+  },
+  {
+    "date": "2027-01-11",
+    "text": "New guide: finding and fixing broken links. Fix navigation and top pages first, redirect old URLs that other sites link to, and don't send every missing page to the home page. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/broken-links-check.html\n\n#SEO"
+  },
+  {
+    "date": "2027-01-18",
+    "text": "New guide: Japanese OCR for scanned PDFs, receipts and invoices. Check for a text layer first, scan at 300 DPI, set vertical text correctly, and always check amounts by hand. https://myunsd0417-creator.github.io/seo-ai-readiness-audit/japanese-ocr-pdf-images.html\n\n#OCR #Japan"
   }
 ]

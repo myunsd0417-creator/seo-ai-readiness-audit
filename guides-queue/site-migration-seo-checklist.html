@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website Migration SEO Checklist: Before, During and After Launch</title>
+<meta name="description" content="A practical checklist for redesigns, new domains and CMS moves: redirect mapping, staging settings, robots.txt, canonical tags, sitemaps and what to watch in the weeks after launch.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a href="./">Site Visibility Guides</a></header>
+<main>
+<p class="meta">Updated November 2026 · Written by the developer of the tool mentioned below (<a href="disclosure.html">disclosure</a>)</p>
+<h1>Website migration SEO checklist: before, during and after launch</h1>
+
+<p>A redesign, a new CMS or a new domain is the most common reason a healthy site suddenly loses search traffic. The new site usually looks better. The problem is what changed underneath: URLs, redirects, robots settings and tags that nobody re-checked.</p>
+
+<p>This checklist covers the steps that prevent most of the damage.</p>
+
+<h2>Before launch</h2>
+<ol>
+<li><strong>Export every current URL.</strong> Use your sitemap, your CMS export and your analytics top pages. This list is your safety net.</li>
+<li><strong>Write a redirect map.</strong> Every old URL that changes gets a <strong>301 redirect</strong> to the closest matching new page. Avoid sending everything to the home page.</li>
+<li><strong>Keep what already ranks.</strong> Carry over titles, headings and main content for your best pages unless you have a reason to change them.</li>
+<li><strong>Record a baseline.</strong> Save today's indexing, traffic and page scores so you can compare after launch.</li>
+</ol>
+
+<h2>On launch day</h2>
+<ol>
+<li><strong>Remove staging blocks.</strong> Test sites are usually hidden with <code>noindex</code>, a robots.txt <code>Disallow: /</code> or a password. Make sure none of these reach the live site.</li>
+<li><strong>Check robots.txt</strong> on the new site, including whether AI search crawlers are still allowed.</li>
+<li><strong>Test the redirects.</strong> Open a sample of old URLs. Each should go to the right new page in one hop, with a 301.</li>
+<li><strong>Check canonical tags.</strong> They should point to the new URLs on the live domain, not to staging or the old domain.</li>
+<li><strong>Publish the new sitemap</strong> and list it in robots.txt. If the domain changed, use the change of address tool in Google Search Console.</li>
+</ol>
+
+<div class="note">The most expensive mistake is also the easiest to miss: a staging <code>noindex</code> left on the live site. The pages look perfect in a browser and quietly disappear from search.</div>
+
+<h2>The weeks after launch</h2>
+<ul>
+<li>Watch Search Console for 404 errors and pages marked as excluded.</li>
+<li>Fix redirect chains (A → B → C) by pointing A straight to C.</li>
+<li>Update internal links so they point to the new URLs directly.</li>
+<li>Compare traffic for your top pages with the baseline. A small dip is normal. A page that drops to zero needs a check.</li>
+<li>Keep the redirects in place for at least a year.</li>
+</ul>
+
+<h2>Compare the site before and after automatically</h2>
+<p>I built <strong>SEO &amp; AI Search Monitor</strong> on the Apify Store for this. Run it once before launch to save a baseline, then again after launch. It reports what got worse: pages that became <code>noindex</code>, AI crawlers newly blocked in robots.txt, a missing sitemap or <code>llms.txt</code>, new broken links and score drops per page. Schedule it weekly to keep watching. You pay per page checked, with no API key. See the current price on the tool's Pricing tab.</p>
+<p><a class="cta" href="https://apify.com/mirumiru_miru17/seo-ai-readiness-audit">Open the tool on Apify</a></p>
+
+<h2>Summary</h2>
+<ul>
+<li>List every old URL and map it to a new one with a 301.</li>
+<li>Remove staging <code>noindex</code> and robots.txt blocks on launch day.</li>
+<li>Check canonical tags, the sitemap and robots.txt on the live site.</li>
+<li>Compare with a baseline for several weeks after launch.</li>
+</ul>
+
+<p>Related guides: <a href="noindex-check.html">Did your pages turn noindex?</a> · <a href="sitemap-check.html">Is your XML sitemap actually working?</a></p>
+</main>
+<footer>© 2026 Site Visibility Guides · <a href="disclosure.html">Disclosure</a> · <a href="https://bsky.app/profile/mirumiru77.bsky.social">Follow on Bluesky</a></footer>
+</body>
+</html>
